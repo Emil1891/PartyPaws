@@ -6,15 +6,6 @@
             "id": "6a3b7855-266d-4c0f-a8b0-f7515c0388c4",
             "actions": [
                 {
-                    "name": "Join",
-                    "type": "Button",
-                    "id": "692f0fb8-8c73-4c6a-bddc-a0c8280579bf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Play",
                     "type": "Button",
                     "id": "ef267ab9-9bd2-4700-adc3-ec983d82edd6",
@@ -25,28 +16,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "c3f32bb0-fdf3-49d5-b399-68a6ea2d4cd5",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7f05d4d1-dbc6-40ba-a5b6-52ea81b0a77f",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "99de26fe-4ea0-4f55-8777-3f09747d0edf",
@@ -61,11 +30,122 @@
                 {
                     "name": "",
                     "id": "6742497b-edd9-473b-b140-1a69a4d78ea0",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CurrentPlayer",
+            "id": "59c4716d-7443-462c-974a-d5d9061a951d",
+            "actions": [
+                {
+                    "name": "PlayNote",
+                    "type": "Button",
+                    "id": "a4634f73-8611-4a31-bfeb-2036e2c4f100",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "909ae69d-cfe3-41b7-a4db-027b1667172e",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df6dcc5a-8674-4180-b191-971af09a01f0",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7846e40-a4e5-41d3-b558-d0147b8d6321",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f519dfc-7340-450e-b2df-2b00b5b52c2d",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99a36912-d7e8-4703-8a80-f76afa61bdbd",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Watcher",
+            "id": "7457ac16-eed7-4355-8c4e-f89746e7e354",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "eb49056f-230b-40d8-a9cb-0208b8c01d2e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "660b6823-8857-47db-870c-e76ef5ecf123",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67ad70fc-0b9b-4fe3-acde-483744ee9003",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -89,7 +169,7 @@
             "bindingGroup": "Gamepad",
             "devices": [
                 {
-                    "devicePath": "<Gamepad>",
+                    "devicePath": "<XInputController>",
                     "isOptional": true,
                     "isOR": false
                 }
