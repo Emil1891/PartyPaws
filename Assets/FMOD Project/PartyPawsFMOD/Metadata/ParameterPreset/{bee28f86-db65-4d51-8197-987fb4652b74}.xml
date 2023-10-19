@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{bee28f86-db65-4d51-8197-987fb4652b74}">
+		<property name="name">
+			<value>animalType</value>
+		</property>
+		<relationship name="folder">
+			<destination>{85b3c1f5-1f7c-483a-8825-d6994d161aa9}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3c0ba5c2-a51f-4caf-aafe-f8fc7a9af9e0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3c0ba5c2-a51f-4caf-aafe-f8fc7a9af9e0}">
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
