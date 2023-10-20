@@ -18,7 +18,7 @@ public class SceneLoader : MonoBehaviour
     {
         //Start transition animation
         transition.SetTrigger("Start");
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI Slide");
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(sceneName);
