@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638333363890930071
+  lastModified: 638334045873396882
   FileSizes:
   - Name: Desktop
-    Value: 685600
+    Value: 696992
   Exists: 1
 --- !u!114 &-7346444849866812084
 MonoBehaviour:
@@ -122,7 +122,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 38400
+  Length: 43200
 --- !u!114 &-4085122421993530809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 38400
+  Length: 24000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638333363890930071
+  cacheTime: 638334045873416902
   cacheVersion: 131608
 --- !u!114 &799217082350952025
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638333363890930071
+  lastModified: 638334045873416902
   FileSizes:
   - Name: Desktop
     Value: 1040
