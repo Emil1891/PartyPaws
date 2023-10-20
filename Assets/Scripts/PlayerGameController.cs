@@ -4,16 +4,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/**
+ * Should prob be renamed to PlayerController, since it now handles all player behaviour 
+ */
+
 public class PlayerGameController : MonoBehaviour
 {
+    private GameManager gameManager;
 
-    public void PlayNote(InputAction.CallbackContext context)
+    private void Start()
     {
-        // Only do things when it is pressed/triggered 
-        if (!context.action.triggered)
+        gameManager = FindObjectOfType<GameManager>(); 
+    }
+
+    private void PlayNote(InputAction.CallbackContext context, char buttonName)
+    {
+        // context.action.actionMap
+        if (!context.action.triggered) 
             return; 
         
-        Debug.Log($"I played tone {context.action.id}"); 
+        gameManager.ButtonPressed(buttonName);
+        
+        // Debug.Log($"Player pressed {buttonName}"); 
     }
+    
+    public void PlayNoteA(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'A'); 
+    }
+    
+    public void PlayNoteB(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'B'); 
+    }
+    
+    public void PlayNoteX(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'X'); 
+    }
+    
+    public void PlayNoteY(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'Y'); 
+    } 
 
 }

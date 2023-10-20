@@ -1,28 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class PlayerMenuManager : MonoBehaviour
-{
-    private static int playerCount = 0; 
-    
-    [SerializeField] private GameObject[] playerScreens; 
-    
-    [SerializeField] private string[] playerNames; 
+/**
+ * Handles join screen behaviour 
+ */
 
-    [SerializeField] private Sprite[] sprites; 
+public class PlayerMenuManager : MonoBehaviour
+{    
+    
+    [Serializable]
+    public struct PlayerInfo 
+    {
+        public GameObject screen;
+        public string name;
+        public Sprite sprite; 
+    }
+
+    [SerializeField] private PlayerInfo[] playerInfo; 
+    
+    private static int playerCount = 0; 
 
     // Function called when a new player is added 
     public void OnPlayerJoined()
     {
-        GameObject newPlayerScreen = playerScreens[playerCount]; 
-        string newPlayerText = playerNames[playerCount]; 
+        PlayerInfo newInfo = playerInfo[playerCount]; 
 
-        newPlayerScreen.GetComponentInChildren<Image>().sprite = sprites[playerCount]; 
-        newPlayerScreen.GetComponentInChildren<TextMeshProUGUI>().SetText(newPlayerText); 
+        newInfo.screen.GetComponentInChildren<Image>().sprite = newInfo.sprite; 
+        newInfo.screen.GetComponentInChildren<TextMeshProUGUI>().SetText(newInfo.name); 
 
         playerCount++; 
+        
+        // TODO: Play animal related sound here? 
     }
+    
 }

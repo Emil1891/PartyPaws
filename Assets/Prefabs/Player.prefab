@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6983694341761794764}
-  - component: {fileID: 6983694341761794765}
   - component: {fileID: -2034042771002677825}
   - component: {fileID: -4529119789968008441}
   - component: {fileID: 894575885089128601}
@@ -35,19 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6983694341761794765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983694341761794769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505e5ed676388434c85faa633fb8512c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: 1
 --- !u!114 &-2034042771002677825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +79,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4529119789968008441}
         m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
-        m_MethodName: PlayNote
+        m_MethodName: PlayNoteA
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -109,6 +95,54 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eb49056f-230b-40d8-a9cb-0208b8c01d2e
     m_ActionName: Watcher/New action[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4529119789968008441}
+        m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
+        m_MethodName: PlayNoteB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 326f3861-3ff9-4aab-9394-b8199abcda08
+    m_ActionName: CurrentPlayer/PlayNoteB[/Keyboard/b,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4529119789968008441}
+        m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
+        m_MethodName: PlayNoteX
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f88b34db-eb75-45ef-b513-20ed644b61aa
+    m_ActionName: CurrentPlayer/PlayNoteX[/XInputControllerWindows/buttonWest,/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4529119789968008441}
+        m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
+        m_MethodName: PlayNoteY
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f05ab7eb-2531-467d-8a8e-87176c46604f
+    m_ActionName: CurrentPlayer/PlayNoteY[/XInputControllerWindows/buttonNorth,/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: MenuPlayer
@@ -138,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81eb75db7408f24690f867bcbb14726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionMappingsNameOnScene:
+  actionMappingsName:
   - MenuPlayer
   - CurrentPlayer
+  - Watcher
   playerInput: {fileID: -2034042771002677825}
