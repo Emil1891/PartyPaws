@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,12 @@ public class Note
 {
 
     private float time;
-    private char noteValue;
+    private char buttonName;
 
-    public Note(float time, char noteValue)
+    public Note(float time, char buttonName)
     {
         this.time = time;
-        this.noteValue = noteValue;
-    }
-
-    public string ToString()
-    {
-        return "["+this.noteValue+"] ["+this.time+"]";
+        this.buttonName = buttonName;
     }
 
     public float GetTime()
@@ -24,8 +20,23 @@ public class Note
         return time;    
     }
 
-    public char GetNoteValue()
+    public char GetButtonName()
     { 
-        return noteValue;
+        return buttonName; 
     }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || this.GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        if (this == obj)
+            return true; 
+        
+        Note otherNote = (Note) obj;
+        return time.Equals(otherNote.time) && buttonName.Equals(otherNote.buttonName); 
+    }
+    
 }
