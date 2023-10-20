@@ -4,15 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/**
+ * Should prob be renamed to PlayerController, since it now handles all player behaviour 
+ */
+
 public class PlayerGameController : MonoBehaviour
 {
-    
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>(); 
+    }
+
     private void PlayNote(InputAction.CallbackContext context, char buttonName)
     {
-        if (!context.action.triggered)
+        // context.action.actionMap
+        if (!context.action.triggered) 
             return; 
         
-        Debug.Log($"Player pressed {buttonName}"); 
+        gameManager.ButtonPressed(buttonName);
+        
+        // Debug.Log($"Player pressed {buttonName}"); 
     }
     
     public void PlayNoteA(InputAction.CallbackContext context)
@@ -33,6 +46,6 @@ public class PlayerGameController : MonoBehaviour
     public void PlayNoteY(InputAction.CallbackContext context)
     {
         PlayNote(context, 'Y'); 
-    }
+    } 
 
 }

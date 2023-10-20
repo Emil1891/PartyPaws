@@ -145,7 +145,7 @@ MonoBehaviour:
     m_ActionName: CurrentPlayer/PlayNoteY[/XInputControllerWindows/buttonNorth,/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Watcher
+  m_DefaultActionMap: MenuPlayer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &-4529119789968008441
