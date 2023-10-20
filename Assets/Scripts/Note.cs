@@ -6,17 +6,12 @@ public class Note
 {
 
     private float time;
-    private char noteValue;
+    private char buttonName;
 
-    public Note(float time, char noteValue)
+    public Note(float time, char buttonName)
     {
         this.time = time;
-        this.noteValue = noteValue;
-    }
-
-    public string ToString()
-    {
-        return "["+this.noteValue+"] ["+this.time+"]";
+        this.buttonName = buttonName;
     }
 
     public float GetTime()
@@ -24,8 +19,8 @@ public class Note
         return time;    
     }
 
-    public char GetNoteValue()
+    public char GetButtonName()
     { 
-        return noteValue;
+        return buttonName; 
     }
 }

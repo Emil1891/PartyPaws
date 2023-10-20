@@ -47,7 +47,8 @@ public class PlayerInputManager : MonoBehaviour
         Debug.Log($"Player {gameObject.name} requested start game");
 
         // Get a random starting index to randomize who plays first 
-        int startingPlayerIndex = Random.Range(0, players.Length);
+        // int startingPlayerIndex = Random.Range(0, players.Length);
+        int startingPlayerIndex = 0; // Not random anymore 
 
         // Set the starting player's action mapping to current player and the rest to watchers 
         for (int i = 0; i < players.Length; i++)
