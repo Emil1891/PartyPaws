@@ -19,7 +19,7 @@
                 {
                     "name": "",
                     "id": "99de26fe-4ea0-4f55-8777-3f09747d0edf",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -177,7 +177,7 @@
             "id": "7457ac16-eed7-4355-8c4e-f89746e7e354",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "PlaySound",
                     "type": "Button",
                     "id": "eb49056f-230b-40d8-a9cb-0208b8c01d2e",
                     "expectedControlType": "Button",
@@ -190,11 +190,11 @@
                 {
                     "name": "",
                     "id": "660b6823-8857-47db-870c-e76ef5ecf123",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "New action",
+                    "action": "PlaySound",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -205,7 +205,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "PlaySound",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

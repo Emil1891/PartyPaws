@@ -1023,16 +1023,16 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: b1364e7c-bb20-4779-b7fa-b9c60f53654b
-        m_Path: <Keyboard>/space
+        m_Id: 2c471fc9-37c8-4dcc-8d0f-aaf0367f3da0
+        m_Path: <XInputController>/buttonSouth
         m_Interactions: 
         m_Processors: 
         m_Groups: 
         m_Action: Join
         m_Flags: 0
       - m_Name: 
-        m_Id: a40854d8-ce83-4af4-b6f0-7782b96f65e3
-        m_Path: <Gamepad>/buttonSouth
+        m_Id: 84b0d5f3-e0c1-4778-9c51-43cc37da301c
+        m_Path: <Keyboard>/a
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -1062,31 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864536bc28362e448bbf7fa1af8d2a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGameInputAction:
-    m_Name: Start Game Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 49914971-ef43-4d32-a616-72ae587c5f4b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 4f932f78-78d8-4bf8-b90b-66f728565e83
-      m_Path: <Keyboard>/anyKey
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Start Game Input
-      m_Flags: 0
-    - m_Name: 
-      m_Id: e03ce6c3-73c2-4414-87d3-33fc688f9cd0
-      m_Path: <XInputController>/buttonWest
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Start Game Input
-      m_Flags: 0
-    m_Flags: 0
   playerInfo:
   - screen: {fileID: 1608289530}
     name: Rooty
@@ -1241,6 +1216,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904141627}
   m_CullTransparentMesh: 1
+--- !u!1 &1149035232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149035234}
+  - component: {fileID: 1149035233}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1149035233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149035232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1af2d9d10315f45ad261bae4628746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1149035234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149035232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 907.2659, y: 575.95636, z: 6.0302734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209035746
 GameObject:
   m_ObjectHideFlags: 0

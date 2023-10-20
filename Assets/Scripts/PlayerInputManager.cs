@@ -6,12 +6,18 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
+/**
+ * 
+ */
+
 public class PlayerInputManager : MonoBehaviour
 {
-    private enum EActionMapping  
+    public enum EActionMapping  
     {
         MenuMapping = 0, CurrentPlayer = 1, Watcher = 2 
     }
+
+    private EActionMapping currentActionMap = EActionMapping.MenuMapping; 
 
     // The array index is from the enum above and the string is the action mapping to use in that state  
     [SerializeField] private string[] actionMappingsName; 
@@ -55,6 +61,13 @@ public class PlayerInputManager : MonoBehaviour
 
     private void SwitchActionMapping(EActionMapping actionMap) 
     { 
-        playerInput.SwitchCurrentActionMap(actionMappingsName[(int)actionMap]); 
+        playerInput.SwitchCurrentActionMap(actionMappingsName[(int)actionMap]);
+        currentActionMap = actionMap; 
     }
+
+    public EActionMapping GetCurrentActionMapping()
+    {
+        return currentActionMap; 
+    }
+
 }

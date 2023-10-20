@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI; 
 
+/**
+ * Handles join screen behaviour 
+ */
+
 public class PlayerMenuManager : MonoBehaviour
-{
-    [SerializeField] private InputAction startGameInputAction; 
+{    
     
     [Serializable]
     public struct PlayerInfo 
@@ -31,5 +33,8 @@ public class PlayerMenuManager : MonoBehaviour
         newInfo.screen.GetComponentInChildren<TextMeshProUGUI>().SetText(newInfo.name); 
 
         playerCount++; 
+        
+        // TODO: Play animal related sound here? 
     }
+    
 }
