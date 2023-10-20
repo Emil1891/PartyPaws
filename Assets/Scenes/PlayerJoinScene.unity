@@ -1062,21 +1062,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864536bc28362e448bbf7fa1af8d2a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScreens:
-  - {fileID: 1608289530}
-  - {fileID: 1977176759}
-  - {fileID: 848700620}
-  - {fileID: 1728159204}
-  playerNames:
-  - Rooty
-  - Sproing
-  - Polar Bear
-  - An Animal
-  sprites:
-  - {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
-  - {fileID: 21300000, guid: 62053ed690017d143bd2cfa8e5dc3ff5, type: 3}
-  - {fileID: 21300000, guid: 1da4b8d35afa8314198e7b69dc383431, type: 3}
-  - {fileID: 21300000, guid: 91976e8b9ce0f0341838727acd55621c, type: 3}
+  startGameInputAction:
+    m_Name: Start Game Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 49914971-ef43-4d32-a616-72ae587c5f4b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4f932f78-78d8-4bf8-b90b-66f728565e83
+      m_Path: <Keyboard>/anyKey
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Start Game Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: e03ce6c3-73c2-4414-87d3-33fc688f9cd0
+      m_Path: <XInputController>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Start Game Input
+      m_Flags: 0
+    m_Flags: 0
+  playerInfo:
+  - screen: {fileID: 1608289530}
+    name: Rooty
+    sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
+  - screen: {fileID: 1977176759}
+    name: Sproing
+    sprite: {fileID: 21300000, guid: 7e1aff9652c0dac418d9aa42f5f24dc2, type: 3}
+  - screen: {fileID: 848700620}
+    name: polar Bear
+    sprite: {fileID: 21300000, guid: 4f3a106299767d146975053c7be09b97, type: 3}
+  - screen: {fileID: 1728159204}
+    name: An Animal
+    sprite: {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
 --- !u!1 &848700620
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,14 +6,33 @@ using UnityEngine.InputSystem;
 
 public class PlayerGameController : MonoBehaviour
 {
-
-    public void PlayNote(InputAction.CallbackContext context)
+    
+    private void PlayNote(InputAction.CallbackContext context, char buttonName)
     {
-        // Only do things when it is pressed/triggered 
         if (!context.action.triggered)
             return; 
         
-        Debug.Log($"I played tone {context.action.id}"); 
+        Debug.Log($"Player pressed {buttonName}"); 
+    }
+    
+    public void PlayNoteA(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'A'); 
+    }
+    
+    public void PlayNoteB(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'B'); 
+    }
+    
+    public void PlayNoteX(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'X'); 
+    }
+    
+    public void PlayNoteY(InputAction.CallbackContext context)
+    {
+        PlayNote(context, 'Y'); 
     }
 
 }

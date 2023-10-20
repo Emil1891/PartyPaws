@@ -45,9 +45,36 @@
             "id": "59c4716d-7443-462c-974a-d5d9061a951d",
             "actions": [
                 {
-                    "name": "PlayNote",
+                    "name": "PlayNoteA",
                     "type": "Button",
                     "id": "a4634f73-8611-4a31-bfeb-2036e2c4f100",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayNoteB",
+                    "type": "Button",
+                    "id": "326f3861-3ff9-4aab-9394-b8199abcda08",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayNoteX",
+                    "type": "Button",
+                    "id": "f88b34db-eb75-45ef-b513-20ed644b61aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayNoteY",
+                    "type": "Button",
+                    "id": "f05ab7eb-2531-467d-8a8e-87176c46604f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -58,11 +85,11 @@
                 {
                     "name": "",
                     "id": "909ae69d-cfe3-41b7-a4db-027b1667172e",
-                    "path": "<Keyboard>/anyKey",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "PlayNote",
+                    "action": "PlayNoteA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -73,40 +100,73 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "PlayNote",
+                    "action": "PlayNoteA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b7846e40-a4e5-41d3-b558-d0147b8d6321",
-                    "path": "<XInputController>/buttonWest",
+                    "id": "0333e87b-8bb3-4f78-a46b-dfac3ef7a5be",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "PlayNote",
+                    "groups": "Keyboard",
+                    "action": "PlayNoteB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9f519dfc-7340-450e-b2df-2b00b5b52c2d",
-                    "path": "<XInputController>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "PlayNote",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "99a36912-d7e8-4703-8a80-f76afa61bdbd",
+                    "id": "93c96a37-b414-460a-be13-ef344d0ab750",
                     "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "PlayNote",
+                    "action": "PlayNoteB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "616d9a94-a20d-408b-a2d2-f27197fab75e",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNoteX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aaece0b9-41d1-42c9-82c5-51c319e91746",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayNoteX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55d68e94-e905-456b-a8cb-351a78ced5f3",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayNoteY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b0d412b-0180-45bd-94a1-060a03f3707b",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayNoteY",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -11,6 +11,6 @@ public class GameManager : MonoBehaviour
     {
         players = GameObject.FindWithTag("Player"); 
         
-        
     }
+
 }
