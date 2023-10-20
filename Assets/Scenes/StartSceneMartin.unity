@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 107563500}
   - component: {fileID: 107563501}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,15 +230,13 @@ MonoBehaviour:
       Data4: 761418696
     Path: event:/AnimalSound
   Event: 
-  PlayEvent: 1
-  StopEvent: 2
+  PlayEvent: 0
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: animalType
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -254,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790a935fa871e3441bf7151f91086249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalID: 0
 --- !u!1 &2027077982
 GameObject:
   m_ObjectHideFlags: 0

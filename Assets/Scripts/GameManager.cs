@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     private float timer = 0; 
 
+    private FMOD.Studio.EventInstance DrumKit;
+
     // private Track currentTrack; // something like this? 
 
     private void Start()
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
 
         audioPlayer = GetComponent<AudioSource>(); 
         
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 1");
+
         StartNewComposeRound(); 
     }
 
@@ -142,11 +146,37 @@ public class GameManager : MonoBehaviour
 
     private void PlayDrumSound(char buttonName)
     {
+        switch(buttonName){
+            case 'A':
+            DrumKit.setParameterByName("hitType", 0);
+            DrumKit.start();
+            break;
+
+            case 'X':
+            DrumKit.setParameterByName("hitType", 1);
+            DrumKit.start();
+            break;
+
+            case 'Y':
+            DrumKit.setParameterByName("hitType", 2);
+            DrumKit.start();
+            break;
+
+            case 'B':
+            DrumKit.setParameterByName("hitType", 3);
+            DrumKit.start();
+            break;
+
+        }
+        
         if (buttonName == 'A')
         {
+            DrumKit.setParameterByName("hitType", 0);
+            DrumKit.start();
             //Change parameter of FMOD Instance Drum Sample Type
             //Start instance
         }
+ 
         
         
     }
