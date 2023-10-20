@@ -56,6 +56,8 @@ public class PlayerInputManager : MonoBehaviour
                 players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.CurrentPlayer); 
             else
                 players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
+
+            players[i].GetComponent<PlayerGameController>().enabled = true; 
         }
     }
 
