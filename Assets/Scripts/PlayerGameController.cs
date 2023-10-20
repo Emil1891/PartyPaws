@@ -10,11 +10,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerGameController : MonoBehaviour
 {
-    private GameManager gameManager;
+    private GameManager gameManager; 
 
-    private void Start()
+    private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>(); 
+        enabled = false; 
+    }
+
+    private void OnEnable()
+    {
+        // gameManager = FindObjectOfType<GameManager>(); 
+    }
+
+    public void SetGameManager(GameManager gameManager)
+    {
+        this.gameManager = gameManager; 
     }
 
     private void PlayNote(InputAction.CallbackContext context, char buttonName)
