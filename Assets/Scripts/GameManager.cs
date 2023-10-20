@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     private Track currentTrack = new Track();
 
     private ButtonPromptSpawner btnPromptSpawner; 
+    
+    private FMOD.Studio.EventInstance DrumKit;
 
     private void Start()
     {
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>(); 
         
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 1");
+
         StartNewComposeRound(); 
     }
 
@@ -172,13 +176,28 @@ public class GameManager : MonoBehaviour
 
     private void PlayDrumSound(char buttonName)
     {
-        if (buttonName == 'A')
-        {
-            //Change parameter of FMOD Instance Drum Sample Type
-            //Start instance
+        switch(buttonName){
+            case 'A':
+                DrumKit.setParameterByName("hitType", 0);
+                DrumKit.start();
+            break;
+
+            case 'X':
+                DrumKit.setParameterByName("hitType", 1);
+                DrumKit.start();
+            break;
+
+            case 'Y':
+                DrumKit.setParameterByName("hitType", 2);
+                DrumKit.start();
+            break;
+
+            case 'B':
+                DrumKit.setParameterByName("hitType", 3);
+                DrumKit.start();
+            break;
+
         }
-        
-        
     }
 
     // Called when a new compose round starts and will wait until the song ends before doing its functionality  

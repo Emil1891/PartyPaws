@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{35af6ab1-fc10-467f-a3cb-45bc5fd15242}">
+		<property name="assetPath">
+			<value>UI/DJ Record Scratch sound effect ｜ copyright free sound effects ｜.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.864583333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{53d8e796-53f0-4833-9420-539550dc2b61}</destination>
+		</relationship>
+	</object>
+</objects>

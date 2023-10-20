@@ -151,6 +151,9 @@
 		<property name="length">
 			<value>0.20000000000000001</value>
 		</property>
+		<property name="maxVoices">
+			<value>2</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{58a65cfb-8e8e-4695-a29a-fdea8f66eb4c}</destination>
 		</relationship>
