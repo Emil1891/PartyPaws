@@ -42,7 +42,7 @@ public class PlayerInputManager : MonoBehaviour
         if (!context.action.triggered || SceneManager.GetActiveScene().buildIndex == sceneToLoad)
             return;
 
-        SceneManager.LoadScene(sceneToLoad); 
+        FindObjectOfType<SceneLoader>().LoadScene("GameScene"); 
         
         Debug.Log($"Player {gameObject.name} requested start game");
 
@@ -62,7 +62,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    private void SwitchActionMapping(EActionMapping actionMap) 
+    public void SwitchActionMapping(EActionMapping actionMap) 
     { 
         playerInput.SwitchCurrentActionMap(actionMappingsName[(int)actionMap]);
         currentActionMap = actionMap; 

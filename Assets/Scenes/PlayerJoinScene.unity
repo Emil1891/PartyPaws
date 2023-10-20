@@ -825,6 +825,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487326803}
   m_CullTransparentMesh: 1
+--- !u!1001 &546503229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3004686278924285105, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825792, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_Name
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825792, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0012680069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.051388606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.030952714
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004686279763825799, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38a31b6d50e7aa04495a5e24c27f1dd1, type: 3}
 --- !u!1 &608229434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,17 +1161,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo:
   - screen: {fileID: 1608289530}
-    name: Rooty
-    sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
+    name: Polar Bear
+    sprite: {fileID: 21300000, guid: 99dfd66b577fc644db94c96c762a1224, type: 3}
   - screen: {fileID: 1977176759}
     name: Sproing
-    sprite: {fileID: 21300000, guid: 7e1aff9652c0dac418d9aa42f5f24dc2, type: 3}
+    sprite: {fileID: 21300000, guid: f930af33edb90f743a8eaebb9a03a5f5, type: 3}
   - screen: {fileID: 848700620}
-    name: polar Bear
-    sprite: {fileID: 21300000, guid: 4f3a106299767d146975053c7be09b97, type: 3}
+    name: Goose
+    sprite: {fileID: 21300000, guid: 0665ac51897d1774a8617cbd20777d8a, type: 3}
   - screen: {fileID: 1728159204}
-    name: An Animal
-    sprite: {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
+    name: Dolphin
+    sprite: {fileID: 21300000, guid: e71889552097eb1499aa845ea98ae48a, type: 3}
 --- !u!1 &848700620
 GameObject:
   m_ObjectHideFlags: 0

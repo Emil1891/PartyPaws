@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,9 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentPlayer; 
 
-    private int composerPlayerIndex = 0;
+    private int composerPlayerIndex = 0; 
 
-    private GameObject[] playersPlayedThisRound = new GameObject[4];
+    private int playersReenactedThisRound = 0;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
@@ -32,15 +33,19 @@ public class GameManager : MonoBehaviour
     
     private FMOD.Studio.EventInstance DrumKit;
 
+    private float songLength = 8f; 
+
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        // Sort players in the joined order 
-        Array.Sort(players, (p1, p2) => p1.GetComponent<PlayerInput>().user.index - p2.GetComponent<PlayerInput>().user.index);
+        foreach (var player in players)
+            player.GetComponent<PlayerGameController>().SetGameManager(this); 
 
-        SetStartingPlayer(); 
+        // Sort players in the joined order / or random 
+        // Array.Sort(players, (p1, p2) => p1.GetComponent<PlayerInput>().user.index - p2.GetComponent<PlayerInput>().user.index);
+        // Array.Sort(players, (p1, p2) => Random.Range(-10, 10)); 
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>(); 
         
@@ -60,52 +65,86 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime; 
         timerText.SetText($"Time elapsed: {timer}");
 
-        if (currentGameState.Equals(GameState.Reenacting)) 
+        if (currentGameState.Equals(GameState.Reenacting))
         {
+            Note noteToSpawn = currentTrack.GetNoteToSpawn(timer); 
+            if (noteToSpawn != null)
+            {
+                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), currentGameState); 
+            }
+            
             if (currentTrack.PlayerMissedNote(timer))
             {
+                Debug.Log("failed from update");
                 ReenactFailed(); 
             }
-        }
+        } 
 
-    }
-
-    private void SetStartingPlayer()
-    {
-        // Get the starting player 
-        foreach (var player in players)
-        {
-            player.GetComponent<PlayerGameController>().SetGameManager(this); 
-            
-            if (player.GetComponent<PlayerInputManager>().GetCurrentActionMapping()
-                .Equals(PlayerInputManager.EActionMapping.CurrentPlayer))
-            {
-                currentPlayer = player;
-            }
-        }
     }
 
     private void StartNewComposeRound()
     {
+        if (composerPlayerIndex >= players.Length)
+        {
+            FullRoundEnd(); 
+        }
+        
         Debug.Log("New round started");
+        
+        Debug.Log($"player count: {players.Length}");
+
+        currentPlayer = players[composerPlayerIndex]; 
+
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
+        players[composerPlayerIndex].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer); 
 
         currentGameState = GameState.Composing; 
         
-        currentTrack.listOfComposerNotes.Clear(); 
+        currentTrack.NewCompRoundStarted(); 
         timer = 0; 
+        
+        composerPlayerIndex++; 
 
         // Start coroutine that will run after song ends 
-        StartCoroutine(ComposeRoundEnd()); 
+        StartCoroutine(ComposeRoundEnd());
+    }
+
+    private void FullRoundEnd()
+    {
+        Debug.Log("Game over");
+
+        // change input to watcher 
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
+        
+        // show total points
+        // load menu? 
     }
 
     private void StartNewReenactRound()
     {
+        if (playersReenactedThisRound >= players.Length)
+        {
+            StartNewComposeRound();
+            return; 
+        }
+        
         Debug.Log($"Started new reenact round");
 
         currentGameState = GameState.Reenacting;
         timer = 0; 
         currentTrack.NewReenactStarted();
+
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
+
+        int reenactIndex = composerPlayerIndex + playersReenactedThisRound;
+
+        if (reenactIndex >= players.Length)
+            reenactIndex -= players.Length; 
         
+        currentPlayer = players[reenactIndex]; 
+        
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer); 
+
         // Start coroutine that will run after song ends 
         StartCoroutine(ReenactRoundEnd()); 
     }
@@ -119,8 +158,6 @@ public class GameManager : MonoBehaviour
     
     public void ButtonPressed(char buttonName)
     {
-        // Debug.Log($"Pressed {buttonName}");
-
         switch (currentGameState)
         {
             case GameState.Transition: 
@@ -148,7 +185,7 @@ public class GameManager : MonoBehaviour
         
         PlayDrumSound(buttonName); 
         // Create new note and add to track 
-        currentTrack.listOfComposerNotes.Add(new Note(timer, buttonName)); 
+        currentTrack.composerNotes.Add(new Note(timer, buttonName)); 
         
         btnPromptSpawner.SpawnNewPrompt(buttonName, currentGameState); 
     }
@@ -158,18 +195,18 @@ public class GameManager : MonoBehaviour
         // reenact stuff 
         Debug.Log($"Reenacting {buttonName}");
                 
-        PlayDrumSound(buttonName);
+        PlayDrumSound(buttonName); 
 
-        // get next button in the track 
-        // var nextNote = currentTrack.GetNextNote(); 
-
+        // this returns true if there are no more notes as well right now 
         if (currentTrack.PlayedCorrectNote(buttonName, timer))
         {
             // success 
+            Debug.Log($"success hit");
         }
         else
         {
             // failed 
+            Debug.Log($"Failed. new input");
             ReenactFailed(); 
         }
     }
@@ -203,25 +240,27 @@ public class GameManager : MonoBehaviour
     // Called when a new compose round starts and will wait until the song ends before doing its functionality  
     private IEnumerator ComposeRoundEnd()
     {
-        const float songLength = 16f;
+        // const float songLength = 16f; // TODO: GET THE LENGTH DYNAMICALLY 
         yield return new WaitForSeconds(songLength); 
         
         Debug.Log("Compose round ended"); 
         
-        StartNewReenactRound();
-        
         // more awesome stuff 
+
+        StartNewReenactRound();
     }
     
     // Called when a new compose round starts 
     private IEnumerator ReenactRoundEnd()
     {
-        const float songLength = 16f;
+        // const float songLength = 16f; // TODO: GET THE LENGTH DYNAMICALLY 
         yield return new WaitForSeconds(songLength); 
         
         Debug.Log("Reenact round ended"); 
         // more awesome stuff 
-        
+
+        playersReenactedThisRound++; 
+
         StartNewReenactRound();
     }
     

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,12 @@ public class SceneLoader : MonoBehaviour
 
     public Animator transition;
     public float transitionTime = 2f;
-    
+
+    private void Start()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI Slide"); 
+    }
+
     public void LoadScene(string sceneName)
     {
         StartCoroutine(TransitionToScene(sceneName));

@@ -19,7 +19,7 @@ public class ButtonPrompt : MonoBehaviour
     // How far the prompt should move 
     [SerializeField] private float moveDistance = 500f; 
     
-    [SerializeField] private float moveSpeed = 3f; 
+    [SerializeField] private float moveSpeed = 3f;
 
     private Vector2 targetLoc; 
 
@@ -62,7 +62,7 @@ public class ButtonPrompt : MonoBehaviour
 
         rectTransform.anchoredPosition = transform.position; 
         
-        initialSpawnLoc = GetComponent<RectTransform>().anchoredPosition; 
+        initialSpawnLoc = rectTransform.anchoredPosition; 
         
         switch (gameState)
         {
@@ -74,6 +74,7 @@ public class ButtonPrompt : MonoBehaviour
                 targetLoc = rectTransform.anchoredPosition; 
                 rectTransform.anchoredPosition += Vector2.up * moveDistance;
                 movingUp = false; 
+                initialSpawnLoc = rectTransform.anchoredPosition; 
                 break;
 
             case GameManager.GameState.Transition:
@@ -87,7 +88,7 @@ public class ButtonPrompt : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float moveAmount = moveSpeed * Time.deltaTime;
 
@@ -111,12 +112,19 @@ public class ButtonPrompt : MonoBehaviour
 
     private float GetNewAlpha()
     {
+        // alpha broken when moving down TODO: Fix 
+        if (!movingUp)
+            return 1; 
+        
         float distanceMovedSoFar = rectTransform.anchoredPosition.y - initialSpawnLoc.y;
 
-        float totalDistanceToMove = Mathf.Abs(targetLoc.y - initialSpawnLoc.y) - 100; // -100 because of 
+        float totalDistanceToMove = Mathf.Abs(movingUp ? targetLoc.y - initialSpawnLoc.y : initialSpawnLoc.y - targetLoc.y); 
 
-        // we want the percentage reversed since moving far equals low opacity 
-        return 1 - distanceMovedSoFar / totalDistanceToMove; 
+        // we want the percentage reversed since moving far equals low opacity when moving up 
+        if (movingUp)
+            return 1 - distanceMovedSoFar / totalDistanceToMove;
+        
+        return distanceMovedSoFar / totalDistanceToMove; // if moving down, we want to fade in 
 
     }
     

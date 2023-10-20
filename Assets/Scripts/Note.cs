@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,4 +24,19 @@ public class Note
     { 
         return buttonName; 
     }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || this.GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        if (this == obj)
+            return true; 
+        
+        Note otherNote = (Note) obj;
+        return time.Equals(otherNote.time) && buttonName.Equals(otherNote.buttonName); 
+    }
+    
 }
