@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638334045873396882
+  lastModified: 638334095850467689
   FileSizes:
   - Name: Desktop
-    Value: 696992
+    Value: 696704
   Exists: 1
 --- !u!114 &-7346444849866812084
 MonoBehaviour:
@@ -63,12 +63,12 @@ MonoBehaviour:
   Name: animalType
   StudioPath: 
   Min: 0
-  Max: 3
+  Max: 4
   Default: 0
   ID:
     data1: 3569095116
     data2: 2598467774
-  Type: 0
+  Type: 1
   IsGlobal: 0
   Labels: []
   Exists: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638334045873416902
+  cacheTime: 638334095850487705
   cacheVersion: 131608
 --- !u!114 &799217082350952025
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638334045873416902
+  lastModified: 638334095850487705
   FileSizes:
   - Name: Desktop
     Value: 1040
@@ -271,7 +271,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -9038441687832030407}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters:
   - {fileID: -7346444849866812084}
