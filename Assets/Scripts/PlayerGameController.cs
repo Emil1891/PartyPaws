@@ -10,21 +10,36 @@ using UnityEngine.InputSystem;
 
 public class PlayerGameController : MonoBehaviour
 {
-    private GameManager gameManager; 
+    private GameManager gameManager;
+
+    private float cheerTimer;
+
+    [SerializeField] private float cheerDelay = 1f; 
 
     private void Awake()
     {
         enabled = false; 
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        // gameManager = FindObjectOfType<GameManager>(); 
+        cheerTimer += Time.deltaTime; 
     }
 
-    public void SetGameManager(GameManager gameManager)
+    public void SetGameManager(GameManager gameManager) 
     {
         this.gameManager = gameManager; 
+    }
+
+    public void PlayCheerSound(InputAction.CallbackContext context)
+    {
+        if (!context.action.triggered)
+            return; 
+        
+        if (cheerTimer > cheerDelay)
+        {
+            // play cheer sound 
+        }
     }
 
     private void PlayNote(InputAction.CallbackContext context, char buttonName)
