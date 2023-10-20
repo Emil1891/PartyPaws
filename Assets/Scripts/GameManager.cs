@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState currentGameState = GameState.Transition; 
+
+        private FMOD.Studio.EventInstance NarratorSound;
     
     private GameObject[] players; 
 
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
+
         // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -84,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     private void StartNewComposeRound()
     {
+
+
         if (composerPlayerIndex >= players.Length)
         {
             FullRoundEnd(); 
@@ -94,6 +100,10 @@ public class GameManager : MonoBehaviour
         Debug.Log($"player count: {players.Length}");
 
         currentPlayer = players[composerPlayerIndex]; 
+
+        NarratorSound.setParameterByName("animalType", composerPlayerIndex);
+        NarratorSound.start();
+        
 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         players[composerPlayerIndex].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer); 
