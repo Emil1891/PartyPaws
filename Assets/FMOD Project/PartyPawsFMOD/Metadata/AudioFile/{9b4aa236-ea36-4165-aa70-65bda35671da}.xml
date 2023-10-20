@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9b4aa236-ea36-4165-aa70-65bda35671da}">
+		<property name="assetPath">
+			<value>ESM_Magic_Game_Sparkle_Spell_1_Fantasy_Cast_Craft_Mobile_App_Special_Touch_Pickup_Click.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.51846875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{53d8e796-53f0-4833-9420-539550dc2b61}</destination>
+		</relationship>
+	</object>
+</objects>

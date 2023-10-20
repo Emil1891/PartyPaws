@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9035ade4-42b2-41f8-96ac-d96002d3c377}">
+		<property name="assetPath">
+			<value>CrowdApplause_BW.15934.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12.549333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{53d8e796-53f0-4833-9420-539550dc2b61}</destination>
+		</relationship>
+	</object>
+</objects>
