@@ -109,6 +109,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{52efacf8-052f-41bf-aa09-b59a3e91eb34}" />
 	<object class="MultiSound" id="{aa73878c-03a2-430d-ac42-ed9624f9ed70}">
+		<property name="start">
+			<value>0.10887469211822659</value>
+		</property>
 		<property name="length">
 			<value>1.1250113378684807</value>
 		</property>
@@ -140,10 +143,13 @@
 	</object>
 	<object class="MultiSound" id="{536246ef-c106-46b4-84d9-cd1ebe7a2995}">
 		<property name="start">
-			<value>0.25</value>
+			<value>0.35887469211822659</value>
 		</property>
 		<property name="length">
 			<value>1.1250113378684807</value>
+		</property>
+		<property name="pitch">
+			<value>8.5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{17d92923-5fef-4ec3-b967-15f637814fa8}</destination>
@@ -153,6 +159,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{5b20b8bd-e61d-4743-bed8-c87ec7c3c338}">
+		<property name="volume">
+			<value>-5.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 3</value>
 		</property>
@@ -168,10 +177,10 @@
 	</object>
 	<object class="SingleSound" id="{76cce47b-997d-499f-9cc5-a1ceb2d1477c}">
 		<property name="start">
-			<value>0.0625</value>
+			<value>0.17137469211822659</value>
 		</property>
 		<property name="length">
-			<value>1.34375</value>
+			<value>1.7348753078817734</value>
 		</property>
 		<property name="volume">
 			<value>-5</value>
@@ -188,7 +197,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{3d8e1469-678b-4694-8fdb-2e7a585c95e5}">
 		<property name="volume">
-			<value>-16</value>
+			<value>-13.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
@@ -270,6 +279,7 @@
 		<relationship name="effects">
 			<destination>{0d3c6f39-70f1-4174-9dbc-21b3a41611b7}</destination>
 			<destination>{de352e5f-b76c-421e-b3e6-1016b91aa40a}</destination>
+			<destination>{90aa48bc-bbb2-4936-9265-ecc5fccdb1bf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d3adfbd0-b556-45e0-94df-c29f7a6dbe92}" />
@@ -297,10 +307,21 @@
 		<property name="earlyLateMix">
 			<value>100</value>
 		</property>
+		<property name="wetLevel">
+			<value>0</value>
+		</property>
+		<property name="dryLevel">
+			<value>-20.5</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{90aa48bc-bbb2-4936-9265-ecc5fccdb1bf}">
+		<property name="highGain">
+			<value>-11.5</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{78f929ee-d6b8-44b7-89fa-e2113d1b5f40}">
 		<property name="position">
-			<value>0.53125</value>
+			<value>1.03125</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -311,7 +332,7 @@
 	</object>
 	<object class="AutomationPoint" id="{be6ff080-b0a1-46ba-b1c3-0803c98ce326}">
 		<property name="position">
-			<value>1.40625</value>
+			<value>1.90625</value>
 		</property>
 		<property name="value">
 			<value>0</value>

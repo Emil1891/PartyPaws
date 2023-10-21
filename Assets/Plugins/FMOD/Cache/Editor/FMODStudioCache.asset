@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638334334712054337
+  lastModified: 638334808648641058
   FileSizes:
   - Name: Desktop
-    Value: 4162400
+    Value: 5114688
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -127,6 +127,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 445
+--- !u!114 &-5462728931368462612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UINav
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UINav
+  Guid:
+    Data1: -1237037812
+    Data2: 1167401184
+    Data3: 1595429810
+    Data4: -873588221
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8953298923832253549}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4240847577832411068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +257,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-2693117463278135468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music6
+  m_EditorClassIdentifier: 
+  Path: event:/Music6
+  Guid:
+    Data1: -581015086
+    Data2: 1337288465
+    Data3: -1653155140
+    Data4: 971367034
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 22153
 --- !u!114 &-2479273969084570135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,12 +428,14 @@ MonoBehaviour:
   - {fileID: -2479273969084570135}
   - {fileID: 1087871461716901269}
   - {fileID: 6885915680502143268}
+  - {fileID: -5462728931368462612}
+  - {fileID: -2693117463278135468}
   EditorParameters: []
   MasterBanks:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638334334712084365
+  cacheTime: 638334808648671081
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -532,10 +589,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638334334712084365
+  lastModified: 638334808648671081
   FileSizes:
   - Name: Desktop
-    Value: 1852
+    Value: 1930
   Exists: 1
 --- !u!114 &4685493337347662952
 MonoBehaviour:
@@ -641,7 +698,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1406
+  Length: 1906
 --- !u!114 &5876359751467825299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,6 +912,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 354
+--- !u!114 &8953298923832253549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/UINav/uiType
+  m_EditorClassIdentifier: 
+  Name: uiType
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3031784090
+    data2: 916952656
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &9203102796361195878
 MonoBehaviour:
   m_ObjectHideFlags: 0
