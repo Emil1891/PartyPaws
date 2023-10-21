@@ -88,11 +88,12 @@ public class GameManager : MonoBehaviour
 
     private void StartNewComposeRound()
     {
-
-
+        Debug.Log($"Composer index: {composerPlayerIndex}, players length: {players.Length}");
+        
         if (composerPlayerIndex >= players.Length)
         {
-            FullRoundEnd(); 
+            FullRoundEnd();
+            return; 
         }
         
         Debug.Log("New round started");
@@ -104,7 +105,6 @@ public class GameManager : MonoBehaviour
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
         NarratorSound.start();
         
-
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         players[composerPlayerIndex].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer); 
 
@@ -113,7 +113,8 @@ public class GameManager : MonoBehaviour
         currentTrack.NewCompRoundStarted(); 
         timer = 0; 
         
-        composerPlayerIndex++; 
+        composerPlayerIndex++;
+        playersReenactedThisRound = 0; 
 
         // Start coroutine that will run after song ends 
         StartCoroutine(ComposeRoundEnd());
@@ -121,13 +122,14 @@ public class GameManager : MonoBehaviour
 
     private void FullRoundEnd()
     {
-        Debug.Log("Game over");
+        Debug.Log("Game over"); 
 
         // change input to watcher 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
-        // show total points
-        // load menu? 
+        // TODO: Load end scene that shows points/podium 
+        FindObjectOfType<SceneLoader>().LoadScene("ResultsScreen");
+        
     }
 
     private void StartNewReenactRound()
