@@ -52,13 +52,12 @@ public class PlayerInputManager : MonoBehaviour
         hasRequestedJoin = true; 
 
         FindObjectOfType<SceneLoader>().LoadScene(sceneToLoad); 
-
-
+        
         // Set all player action mappings to watchers 
-        for (int i = 0; i < players.Count; i++)
+        foreach (var player in players)
         {
-            players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
-            players[i].GetComponent<PlayerGameController>().enabled = true; 
+            player.GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
+            player.GetComponent<PlayerGameController>().enabled = true;
         }
     }
 

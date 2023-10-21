@@ -28,6 +28,8 @@ public class ButtonPromptSpawner : MonoBehaviour
                 var prompt = Instantiate(btnPrompt, btnSpawnLoc.SpawnTransform.anchoredPosition, Quaternion.identity);
                 prompt.transform.SetParent(canvas.transform);
                 prompt.GetComponent<ButtonPrompt>().SetUpPrompt(buttonName, gameState); 
+                
+                Debug.Log($"Spawned new prompt");
             }
         }
     }

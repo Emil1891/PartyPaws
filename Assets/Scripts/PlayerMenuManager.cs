@@ -12,16 +12,6 @@ using UnityEngine.UI;
 public class PlayerMenuManager : MonoBehaviour
 {  
 
-     private FMOD.Studio.EventInstance AnimalSound;
-     private FMOD.Studio.EventInstance UINav;
-
-    private void Start(){
-                AnimalSound = FMODUnity.RuntimeManager.CreateInstance("event:/AnimalSound");
-                AnimalSound.setVolume(0.3f);
-                UINav = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UINav");
-                UINav.setParameterByName("uiType", 2);
-    }
-    
     [Serializable]
     public struct PlayerInfo 
     {
@@ -34,6 +24,17 @@ public class PlayerMenuManager : MonoBehaviour
     
     private static int playerCount = 0; 
 
+    private FMOD.Studio.EventInstance AnimalSound;
+    private FMOD.Studio.EventInstance UINav;
+    
+    private void Start(){
+        AnimalSound = FMODUnity.RuntimeManager.CreateInstance("event:/AnimalSound");
+        AnimalSound.setVolume(0.3f);
+        
+        UINav = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UINav");
+        UINav.setParameterByName("uiType", 2);
+    }
+    
     // Function called when a new player is added 
     public void OnPlayerJoined()
     {
@@ -47,9 +48,6 @@ public class PlayerMenuManager : MonoBehaviour
         UINav.start();
 
         playerCount++; 
-        
-        
-        // TODO: Play animal related sound here? 
     }
     
 }

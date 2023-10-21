@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class Note
 {
 
-    private float time;
-    private char buttonName;
+    private readonly float time;
+    private readonly char buttonName;
 
     public Note(float time, char buttonName)
     {
@@ -38,5 +35,9 @@ public class Note
         Note otherNote = (Note) obj;
         return time.Equals(otherNote.time) && buttonName.Equals(otherNote.buttonName); 
     }
-    
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(time, buttonName); 
+    }
 }

@@ -6,23 +6,31 @@ public class Track
 {
 
     // keeps track of the note that the spawner composed 
-    public List<Note> composerNotes = new();
+    private List<Note> composerNotes = new();
     
     // keeps track of the notes that the reenactor has correctly inputted 
-    public List<Note> reenactorNotes = new();
+    private List<Note> reenactorNotes = new();
     
     // keeps track of the spawned notes in the reenact phase 
-    public List<Note> spawnedNotes = new();
+    private List<Note> spawnedNotes = new();
 
     // private float currentTime = 0f;
-    public float targetTime = 10f;
+    // public float targetTime = 10f;
     
     // How close the reenactors need to be to consider it a success 
     private float graceRange = 0.5f;
 
     private int reenactCounter = 0;
 
-    private float spawnTime = 2f; 
+    // how long before the button needs to be hit, that the prompt should spawn 
+    private float spawnTime = 2f;
+
+    public void PlayerComposedNewNote(Note note)
+    {
+        composerNotes.Add(note); 
+        
+        Debug.Log($"Notes length: {composerNotes.Count}");
+    }
 
     public bool PlayerMissedNote(float time)
     {
@@ -49,7 +57,13 @@ public class Track
     }
 
     public Note GetNoteToSpawn(float time)
-    {
+    {        
+        // Debug.Log($"Notes length: {composerNotes.Count}"); 
+        // Debug.Log($"Spawned length: {spawnedNotes.Count}"); 
+
+        if (composerNotes.Count == spawnedNotes.Count)
+            return null;
+
         foreach (var note in composerNotes)
         {
             // already spawned note 

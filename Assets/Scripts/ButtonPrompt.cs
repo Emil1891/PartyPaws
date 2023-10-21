@@ -112,7 +112,7 @@ public class ButtonPrompt : MonoBehaviour
 
     private float GetNewAlpha()
     {
-        // alpha broken when moving down TODO: Fix 
+        // alpha broken when moving down TODO: Fix if we want the prompt to fade in when reenacting 
         if (!movingUp)
             return 1; 
         

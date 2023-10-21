@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /**
- * Should prob be renamed to PlayerController, since it now handles all player behaviour 
+ * 
  */
 
 public class PlayerGameController : MonoBehaviour
@@ -16,12 +16,7 @@ public class PlayerGameController : MonoBehaviour
     
     private FMOD.Studio.EventInstance AnimalSound;
 
-    [SerializeField] private float cheerDelay = 1f; 
-
-    private void Awake()
-    {
-        // enabled = false; 
-    }
+    [SerializeField] private float cheerDelay = 1f;
 
     private void Start()
     {
@@ -33,9 +28,9 @@ public class PlayerGameController : MonoBehaviour
         cheerTimer += Time.deltaTime; 
     }
 
-    public void SetGameManager(GameManager gameManager) 
+    public void SetGameManager(GameManager newGameManager) 
     {
-        this.gameManager = gameManager; 
+        gameManager = newGameManager; 
     }
 
     public void PlayCheerSound(InputAction.CallbackContext context)
@@ -45,7 +40,6 @@ public class PlayerGameController : MonoBehaviour
         
         if (cheerTimer > cheerDelay)
         {
-            Debug.Log($"Cheering!"); 
             AnimalSound.setParameterByName("animalType", GetComponent<PlayerInput>().user.id - 1); 
             AnimalSound.start();
             cheerTimer = 0; 
@@ -54,13 +48,10 @@ public class PlayerGameController : MonoBehaviour
 
     private void PlayNote(InputAction.CallbackContext context, char buttonName)
     {
-        // context.action.actionMap
         if (!context.action.triggered || gameManager == null) 
             return; 
         
-        gameManager.ButtonPressed(buttonName);
-        
-        // Debug.Log($"Player pressed {buttonName}"); 
+        gameManager.ButtonPressed(buttonName); 
     }
     
     public void PlayNoteA(InputAction.CallbackContext context)

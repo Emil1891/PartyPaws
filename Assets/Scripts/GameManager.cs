@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         Composing = 0, Reenacting, Transition 
     }
 
-    public GameState currentGameState = GameState.Transition; 
+    private GameState currentGameState = GameState.Transition; 
 
     private FMOD.Studio.EventInstance NarratorSound;
     private FMOD.Studio.EventInstance Music;
@@ -38,17 +38,20 @@ public class GameManager : MonoBehaviour
     private float songLength = 4.8f; 
     
     private const float countdownLength = 4.8f; 
+    
+    private float composeTimer = 0; 
+    
+    [SerializeField] private float composeTimeDelay = 0.1f; 
 
     private void Start()
     {
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
-        //TODO: Kalla på random val av låt
+        //TODO: Kalla pï¿½ random val av lï¿½t
         Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
-        //Ladda Drumkittet som passar ihop med låten
+        //Ladda Drumkittet som passar ihop med lï¿½ten
         DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 2");
 
-        // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (var player in players)
@@ -69,7 +72,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime; 
+        timer += Time.deltaTime;
+        composeTimer += Time.deltaTime; 
         
         if(currentGameState.Equals(GameState.Transition))
             timerText.SetText("Transitioning");
@@ -139,9 +143,7 @@ public class GameManager : MonoBehaviour
         // change input to watcher 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
-        // TODO: Load end scene that shows points/podium 
-        FindObjectOfType<SceneLoader>().LoadScene("ResultsScreen");
-        
+        FindObjectOfType<SceneLoader>().LoadScene("ResultsScreen"); 
     }
 
     private IEnumerator StartNewReenactRound()
@@ -214,12 +216,21 @@ public class GameManager : MonoBehaviour
 
     private void ComposedNewInput(char buttonName)
     {
+        if (composeTimer < composeTimeDelay)
+        {
+            Debug.Log($"Pressed too quickly, time since last press: {composeTimer}");
+            return;
+        }
+
+        composeTimer = 0; 
+
         // composing stuff 
-        Debug.Log($"Composing {buttonName}");
+        // Debug.Log($"Composing {buttonName}");
         
         PlayDrumSound(buttonName); 
+        
         // Create new note and add to track 
-        currentTrack.composerNotes.Add(new Note(timer, buttonName)); 
+        currentTrack.PlayerComposedNewNote(new Note(timer, buttonName)); 
         
         btnPromptSpawner.SpawnNewPrompt(buttonName, currentGameState); 
     }
@@ -227,7 +238,7 @@ public class GameManager : MonoBehaviour
     private void ReenactedNewInput(char buttonName)
     {
         // reenact stuff 
-        Debug.Log($"Reenacting {buttonName}");
+        // Debug.Log($"Reenacting {buttonName}");
                 
         PlayDrumSound(buttonName); 
 
