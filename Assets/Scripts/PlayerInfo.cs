@@ -8,13 +8,13 @@ public class PlayerInfo : MonoBehaviour
 {
     
     [SerializeField] private Sprite[] sprites; 
-    [SerializeField] private string[] names; 
+    [SerializeField] private string[] names;
     
     [HideInInspector] public string playerName;
 
     [HideInInspector] public Sprite sprite;
 
-    [HideInInspector] public int points;
+    public int points;
 
     private void Start()
     {

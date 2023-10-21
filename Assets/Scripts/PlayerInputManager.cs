@@ -43,8 +43,15 @@ public class PlayerInputManager : MonoBehaviour
             return; 
         }
         
-        const string sceneToLoad = "GameScene"; 
-        
+        string sceneToLoad = "GameScene";
+        bool killPlayers = false; 
+
+        if (SceneManager.GetActiveScene().name.Equals("ResultsScreen"))
+        {
+            sceneToLoad = "PlayerJoinScene";
+            killPlayers = true; 
+        }
+
         // Do nothing if the action is other than pressed or trying to load the current scene 
         if (hasRequestedJoin || !context.action.triggered || SceneManager.GetActiveScene().name.Equals(sceneToLoad))
             return;
@@ -56,6 +63,12 @@ public class PlayerInputManager : MonoBehaviour
         // Set all player action mappings to watchers 
         foreach (var player in players)
         {
+            if (killPlayers)
+            {
+                Destroy(player); 
+                continue; 
+            }
+            
             player.GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
             player.GetComponent<PlayerGameController>().enabled = true;
         }

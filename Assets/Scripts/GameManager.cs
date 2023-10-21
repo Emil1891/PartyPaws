@@ -33,14 +33,13 @@ public class GameManager : MonoBehaviour
     private Track currentTrack = new Track();
 
     private ButtonPromptSpawner btnPromptSpawner; 
-
-
+    
     private float songLength = 4.8f; 
-    private float countdownLength = 4.8f;
+    private float countdownLength = 4.8f; 
 
     [SerializeField] private Slider timerSlider; 
     
-    [SerializeField] private Image playerImage;
+    [SerializeField] private Image playerImage; 
 
     [SerializeField] private TextMeshProUGUI[] pointsText; 
 
@@ -156,10 +155,12 @@ public class GameManager : MonoBehaviour
             FullRoundEnd();
             yield break; 
         }
-        
+
+        Music.start();
         Music.setTimelinePosition(0);
         // Music.setVolume(1.0f);
-        StartCoroutine(EnableMusicVolume()); 
+        // StartCoroutine(EnableMusicVolume()); 
+        Music.setVolume(1); 
         
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
         NarratorSound.start();
@@ -207,13 +208,13 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-
-
-
+        
+        Music.start();
         Music.setTimelinePosition(0);
 
         // Music.setVolume(1.0f);
-        StartCoroutine(EnableMusicVolume()); 
+        // StartCoroutine(EnableMusicVolume()); 
+        Music.setVolume(1); 
         
         currentGameState = GameState.Transition;
         
