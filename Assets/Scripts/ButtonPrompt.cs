@@ -83,7 +83,7 @@ public class ButtonPrompt : MonoBehaviour
                 break; 
         }
 
-        Debug.LogWarning($"Spawned new btn");
+        // Debug.LogWarning($"Spawned new btn");
     }
 
     // Update is called once per frame

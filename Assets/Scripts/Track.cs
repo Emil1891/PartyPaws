@@ -18,12 +18,12 @@ public class Track
     // public float targetTime = 10f;
     
     // How close the reenactors need to be to consider it a success 
-    private float graceRange = 0.1f;
+    private float graceRange = 0.15f; 
 
-    private int reenactCounter = 0;
+    private int reenactCounter = 0; 
 
     // how long before the button needs to be hit, that the prompt should spawn 
-    private float spawnTime = 2f; 
+    private float spawnTime = 2f / 3f; 
 
     public void PlayerComposedNewNote(Note note)
     {

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     
     public enum GameState {
-        Composing = 0, Reenacting, Transition 
+        Composing = 0, Reenacting, Transition, FailWait 
     }
 
     private GameState currentGameState = GameState.Transition; 
@@ -91,6 +91,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (currentGameState.Equals(GameState.FailWait))
+            return; 
+        
         timer += Time.deltaTime;
         composeCoolDownTimer += Time.deltaTime; 
         
@@ -103,14 +106,8 @@ public class GameManager : MonoBehaviour
         {
             Note noteToSpawn = currentTrack.GetNoteToSpawn(timer); 
             
-            if (noteToSpawn == null)
-            {
-                 // Debug.Log("no notes to spawn"); 
-            }
-            else
-            {
+            if (noteToSpawn != null)
                 btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), currentGameState);
-            }
             
             if (currentGameState.Equals(GameState.Reenacting) && currentTrack.PlayerMissedNote(timer))
             {
@@ -132,8 +129,10 @@ public class GameManager : MonoBehaviour
             yield break; 
         }
         
-        Music.setVolume(1.0f);
         Music.setTimelinePosition(0);
+        // Music.setVolume(1.0f);
+        StartCoroutine(EnableMusicVolume()); 
+        
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
         NarratorSound.start();
 
@@ -179,10 +178,11 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-
-        Music.setVolume(1.0f);
+        
         Music.setTimelinePosition(0);
-
+        // Music.setVolume(1.0f);
+        StartCoroutine(EnableMusicVolume()); 
+        
         currentGameState = GameState.Transition;
         
         timer = 0; 
@@ -208,14 +208,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ReenactRoundEnd()); 
     }
 
+    private IEnumerator EnableMusicVolume()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        Music.setVolume(1); 
+    }
+
     private void ReenactFailed()
     {
         Music.setVolume(0.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/FailSound");
         
         StopAllCoroutines(); 
-
-        PrepareForNewReenactRound(); 
+        
+        StartCoroutine(PrepareForNewReenactRound(true)); 
         
         Debug.Log("Failed"); 
     }
@@ -331,10 +338,10 @@ public class GameManager : MonoBehaviour
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/WinSound");
 
-        PrepareForNewReenactRound(); 
+        StartCoroutine(PrepareForNewReenactRound(false)); 
     }
 
-    private void PrepareForNewReenactRound()
+    private IEnumerator PrepareForNewReenactRound(bool failed)
     {
         Debug.Log("Reenact round ended");
 
@@ -343,6 +350,13 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
         playersReenactedThisRound++;
+
+        if (failed)
+        {
+            Music.setVolume(0.0f);
+            currentGameState = GameState.FailWait; 
+            yield return new WaitForSeconds(3.5f);
+        }
 
         StartCoroutine(StartNewReenactRound());
     }
