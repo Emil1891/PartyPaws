@@ -383,7 +383,7 @@ public class GameManager : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/WinSound");
 
         currentPlayer.GetComponent<PlayerInfo>().points++;
-        pointsText[currentPlayer.GetComponent<PlayerInput>().user.id - 1].text =
+        pointsText[currentPlayer.GetComponent<PlayerInfo>().playerIndex].text =
             $"{currentPlayer.GetComponent<PlayerInfo>().points}"; 
 
         StartCoroutine(PrepareForNewReenactRound(false)); 

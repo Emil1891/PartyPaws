@@ -15,7 +15,9 @@ public class WinScreenManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] pointsText;
 
-    [SerializeField] private TextMeshProUGUI winText;
+    [SerializeField] private TextMeshProUGUI winText; 
+    
+    [SerializeField] private TextMeshProUGUI restartText; 
 
     private GameObject[] players; 
 
@@ -54,7 +56,7 @@ public class WinScreenManager : MonoBehaviour
         }
         else
         {
-            RoundOver.setParameterByName("animalType", players[0].GetComponent<PlayerInput>().user.id - 1);
+            RoundOver.setParameterByName("animalType", players[0].GetComponent<PlayerInfo>().playerIndex); 
             RoundOver.start();
             winText.SetText($"{players[0].GetComponent<PlayerInfo>().playerName.ToUpper()} WINS!"); 
         }
@@ -65,17 +67,21 @@ public class WinScreenManager : MonoBehaviour
     private void Update()
     {
 
+        if (Time.timeSinceLevelLoad > 5.0f)
+            restartText.gameObject.SetActive(true); 
+
         if (Time.timeSinceLevelLoad > 5.0f && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton2)) && !destroyedPlayers)
         {
             RoundOver.stop(STOP_MODE.ALLOWFADEOUT);
-         
 
             foreach (var player in players)
             {
                 Destroy(player); 
             }
 
-            destroyedPlayers = true; 
+            destroyedPlayers = true;
+
+            PlayerInfo.playerCounter = 0; 
             
             FindObjectOfType<SceneLoader>().LoadScene("PlayerJoinScene");
         }

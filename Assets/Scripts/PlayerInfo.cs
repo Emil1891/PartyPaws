@@ -9,6 +9,10 @@ public class PlayerInfo : MonoBehaviour
     
     [SerializeField] private Sprite[] sprites; 
     [SerializeField] private string[] names;
+
+    public int playerIndex = 0; 
+    
+    public static int playerCounter = 0; 
     
     [HideInInspector] public string playerName;
 
@@ -18,9 +22,10 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
-        uint playerIndex = GetComponent<PlayerInput>().user.id - 1; 
+        playerIndex = playerCounter++;
+        
         sprite = sprites[playerIndex]; 
-        playerName = names[playerIndex]; 
+        playerName = names[playerIndex];
     }
     
 }
