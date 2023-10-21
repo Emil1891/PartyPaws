@@ -22,7 +22,7 @@ public class PlayerMenuManager : MonoBehaviour
 
     [SerializeField] private PlayerInfo[] playerInfo; 
     
-    private static int playerCount = 0; 
+    public static int playerCount = 0; 
 
     private FMOD.Studio.EventInstance AnimalSound;
     private FMOD.Studio.EventInstance UINav;

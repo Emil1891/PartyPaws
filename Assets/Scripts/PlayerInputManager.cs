@@ -26,13 +26,15 @@ public class PlayerInputManager : MonoBehaviour
 
     private static List<GameObject> players = new(); 
 
-    private static bool hasRequestedJoin = false; 
+    public static bool hasRequestedJoin = false; 
 
     private void OnEnable()
     {
         DontDestroyOnLoad(gameObject);
 
         players.Add(gameObject);
+
+        hasRequestedJoin = false;
     }
 
     public void StartGame(InputAction.CallbackContext context)
@@ -44,13 +46,6 @@ public class PlayerInputManager : MonoBehaviour
         }
         
         string sceneToLoad = "GameScene";
-        bool killPlayers = false; 
-
-        if (SceneManager.GetActiveScene().name.Equals("ResultsScreen"))
-        {
-            sceneToLoad = "PlayerJoinScene";
-            killPlayers = true; 
-        }
 
         // Do nothing if the action is other than pressed or trying to load the current scene 
         if (hasRequestedJoin || !context.action.triggered || SceneManager.GetActiveScene().name.Equals(sceneToLoad))
@@ -63,15 +58,12 @@ public class PlayerInputManager : MonoBehaviour
         // Set all player action mappings to watchers 
         foreach (var player in players)
         {
-            if (killPlayers)
-            {
-                Destroy(player); 
-                continue; 
-            }
-            
             player.GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
             player.GetComponent<PlayerGameController>().enabled = true;
         }
+
+        players = new();
+        PlayerMenuManager.playerCount = 0; 
     }
 
     public void SwitchActionMapping(EActionMapping actionMap) 

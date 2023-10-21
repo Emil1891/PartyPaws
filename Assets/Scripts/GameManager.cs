@@ -57,15 +57,13 @@ public class GameManager : MonoBehaviour
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
         NarratorCallOut = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorCalloutAnimal");
 
-
         int songIndex = UnityEngine.Random.Range(1, 8);
 
         Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
 
         //Ladda Drumkittet som passar ihop med l�ten
         DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
-
-
+        
         if (songIndex == 1 || songIndex == 2 || songIndex == 7)
         {
             songLength = 4.8f;
@@ -89,7 +87,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerGameController>().SetGameManager(this);
 
         // Sort players in the joined order / or random 
-        // Array.Sort(players, (p1, p2) => p1.GetComponent<PlayerInput>().user.index - p2.GetComponent<PlayerInput>().user.index);
+        Array.Sort(players, (p1, p2) => p1.GetComponent<PlayerInput>().user.index - p2.GetComponent<PlayerInput>().user.index);
         // Array.Sort(players, (p1, p2) => Random.Range(-10, 10)); 
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>();

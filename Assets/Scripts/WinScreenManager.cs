@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,27 +15,29 @@ public class WinScreenManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] pointsText;
 
-    [SerializeField] private TextMeshProUGUI winText; 
+    [SerializeField] private TextMeshProUGUI winText;
+
+    private GameObject[] players; 
 
     // Start is called before the first frame update
     void Start()
     {
 
         RoundOver = FMODUnity.RuntimeManager.CreateInstance("event:/UI/RoundOver");
-        var players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        var unsortedPlayers = GameObject.FindGameObjectsWithTag("Player"); 
 
         Array.Sort(players, (p1, p2) => p1.GetComponent<PlayerInfo>().points - p2.GetComponent<PlayerInfo>().points);
         Array.Reverse(players); // amazing sort 
-
-
 
         for(int i = 0; i < players.Length; i++)
         {
             animators[i].SetTrigger(players[i].GetComponent<PlayerInfo>().playerName); 
             
-            players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.MenuMapping); 
+            players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
             
-            pointsText[i].SetText(($"players[i].GetComponent<PlayerInfo>().points")); 
+            pointsText[i].SetText($"{unsortedPlayers[i].GetComponent<PlayerInfo>().points}"); 
         }
 
         for(int i = players.Length; i < animators.Length; i++) 
@@ -58,4 +61,24 @@ public class WinScreenManager : MonoBehaviour
 
     }
 
+    private bool destroyedPlayers = false; 
+    private void Update()
+    {
+
+        if (Time.timeSinceLevelLoad > 5.0f && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton2)) && !destroyedPlayers)
+        {
+            RoundOver.stop(STOP_MODE.ALLOWFADEOUT);
+         
+
+            foreach (var player in players)
+            {
+                Destroy(player); 
+            }
+
+            destroyedPlayers = true; 
+            
+            FindObjectOfType<SceneLoader>().LoadScene("PlayerJoinScene");
+        }
+        
+    }
 }
