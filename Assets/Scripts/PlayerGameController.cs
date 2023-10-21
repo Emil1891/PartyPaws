@@ -10,15 +10,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerGameController : MonoBehaviour
 {
-    private GameManager gameManager;
+    private GameManager gameManager; 
 
     private float cheerTimer;
+    
+    private FMOD.Studio.EventInstance AnimalSound;
 
     [SerializeField] private float cheerDelay = 1f; 
 
     private void Awake()
     {
-        enabled = false; 
+        // enabled = false; 
+    }
+
+    private void Start()
+    {
+        AnimalSound = FMODUnity.RuntimeManager.CreateInstance("event:/AnimalSound"); 
     }
 
     private void Update()
@@ -38,14 +45,17 @@ public class PlayerGameController : MonoBehaviour
         
         if (cheerTimer > cheerDelay)
         {
-            // play cheer sound 
+            Debug.Log($"Cheering!"); 
+            AnimalSound.setParameterByName("animalType", GetComponent<PlayerInput>().user.id - 1); 
+            AnimalSound.start();
+            cheerTimer = 0; 
         }
     }
 
     private void PlayNote(InputAction.CallbackContext context, char buttonName)
     {
         // context.action.actionMap
-        if (!context.action.triggered) 
+        if (!context.action.triggered || gameManager == null) 
             return; 
         
         gameManager.ButtonPressed(buttonName);

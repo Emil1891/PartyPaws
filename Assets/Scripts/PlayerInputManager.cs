@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 /**
  * 
@@ -25,39 +24,40 @@ public class PlayerInputManager : MonoBehaviour
     // The player input component 
     [SerializeField] private PlayerInput playerInput; 
 
-    private static GameObject[] players; 
+    private static List<GameObject> players = new(); 
+
+    private bool hasRequestedJoin = false; 
 
     private void OnEnable()
     {
         DontDestroyOnLoad(gameObject);
 
-        players = GameObject.FindGameObjectsWithTag("Player"); 
+        players.Add(gameObject);
     }
 
     public void StartGame(InputAction.CallbackContext context)
     {
-        const int sceneToLoad = 1; // Should prob be handled in a better way 
+        if (players.Count < 2)
+        {
+            Debug.Log("Min 2 players required");
+            return; 
+        }
+        
+        const string sceneToLoad = "GameScene"; 
         
         // Do nothing if the action is other than pressed or trying to load the current scene 
-        if (!context.action.triggered || SceneManager.GetActiveScene().buildIndex == sceneToLoad)
+        if (hasRequestedJoin || !context.action.triggered || SceneManager.GetActiveScene().name.Equals(sceneToLoad))
             return;
 
-        FindObjectOfType<SceneLoader>().LoadScene("GameScene"); 
-        
-        Debug.Log($"Player {gameObject.name} requested start game");
+        hasRequestedJoin = true; 
 
-        // Get a random starting index to randomize who plays first 
-        // int startingPlayerIndex = Random.Range(0, players.Length);
-        int startingPlayerIndex = 0; // Not random anymore 
+        FindObjectOfType<SceneLoader>().LoadScene(sceneToLoad); 
 
-        // Set the starting player's action mapping to current player and the rest to watchers 
-        for (int i = 0; i < players.Length; i++)
+
+        // Set all player action mappings to watchers 
+        for (int i = 0; i < players.Count; i++)
         {
-            if(i == startingPlayerIndex)
-                players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.CurrentPlayer); 
-            else
-                players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
-
+            players[i].GetComponent<PlayerInputManager>().SwitchActionMapping(EActionMapping.Watcher);
             players[i].GetComponent<PlayerGameController>().enabled = true; 
         }
     }
