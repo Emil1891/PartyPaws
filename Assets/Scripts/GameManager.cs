@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public GameState currentGameState = GameState.Transition; 
 
-        private FMOD.Studio.EventInstance NarratorSound;
+    private FMOD.Studio.EventInstance NarratorSound;
     
     private GameObject[] players; 
 
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
+
         // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
         
         DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 1");
 
-        StartNewComposeRound(); 
+        StartNewComposeRound();
     }
 
     private void Update()
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void StartNewComposeRound()
     {
+
 
 
         if (composerPlayerIndex >= players.Length)
@@ -132,6 +134,7 @@ public class GameManager : MonoBehaviour
 
     private void StartNewReenactRound()
     {
+
         if (playersReenactedThisRound >= players.Length)
         {
             StartNewComposeRound();
