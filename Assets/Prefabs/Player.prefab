@@ -92,7 +92,19 @@ MonoBehaviour:
     m_ActionId: a4634f73-8611-4a31-bfeb-2036e2c4f100
     m_ActionName: Compositor/PlayNote[/Keyboard/anyKey]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4529119789968008441}
+        m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
+        m_MethodName: PlayCheerSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: eb49056f-230b-40d8-a9cb-0208b8c01d2e
     m_ActionName: Watcher/New action[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -143,6 +155,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f05ab7eb-2531-467d-8a8e-87176c46604f
     m_ActionName: CurrentPlayer/PlayNoteY[/XInputControllerWindows/buttonNorth,/Keyboard/y]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4529119789968008441}
+        m_TargetAssemblyTypeName: PlayerGameController, Assembly-CSharp
+        m_MethodName: PlayCheerSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e564a1ad-adb1-4a63-9300-6a478f015325
+    m_ActionName: MenuPlayer/PlaySound[/Keyboard/a,/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: MenuPlayer
@@ -160,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab2ba21fdc52974f8d80db41b866a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheerDelay: 0.2
 --- !u!114 &894575885089128601
 MonoBehaviour:
   m_ObjectHideFlags: 0
