@@ -63,21 +63,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(currentGameState.Equals(GameState.Transition))
-        {
-            timerText.SetText("Transitioning");
-            return; 
-        }
-        
         timer += Time.deltaTime; 
-        timerText.SetText($"Time elapsed: {timer:0.00}");
+        
+        if(currentGameState.Equals(GameState.Transition))
+            timerText.SetText("Transitioning");
+        else
+            timerText.SetText($"Time elapsed: {(timer - countdownLength):0.00}"); 
 
-        if (currentGameState.Equals(GameState.Reenacting))
+        if (currentGameState.Equals(GameState.Reenacting) || currentGameState.Equals(GameState.Transition))
         {
             Note noteToSpawn = currentTrack.GetNoteToSpawn(timer); 
             if (noteToSpawn != null)
             {
-                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), currentGameState); 
+                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), GameState.Reenacting); 
             }
             
             if (currentTrack.PlayerMissedNote(timer))
@@ -99,10 +97,7 @@ public class GameManager : MonoBehaviour
             yield break; 
         }
 
-        currentGameState = GameState.Transition;
-
-        Debug.Log(
-            $"Current player state: {currentPlayer.GetComponent<PlayerInputManager>().GetCurrentActionMapping()}"); 
+        currentGameState = GameState.Transition; 
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -120,7 +115,6 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.Composing; 
         
         currentTrack.NewCompRoundStarted(); 
-        timer = 0; 
         
         composerPlayerIndex++;
         playersReenactedThisRound = 0; 
@@ -156,10 +150,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Started new reenact round");
 
         currentGameState = GameState.Reenacting;
-        timer = 0; 
-        currentTrack.NewReenactStarted();
-
-        // currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
+        
+        currentTrack.NewReenactStarted(); 
 
         int reenactIndex = composerPlayerIndex + playersReenactedThisRound;
 
@@ -176,8 +168,6 @@ public class GameManager : MonoBehaviour
 
     private void ReenactFailed()
     {
-        playersReenactedThisRound++; 
-        
         PrepareForNewReenactRound(); 
 
         Debug.Log("Failed"); 
@@ -272,7 +262,9 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("Compose round ended");
 
-        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
+
+        timer = 0; 
 
         StartCoroutine(StartNewReenactRound());
     }
@@ -292,7 +284,9 @@ public class GameManager : MonoBehaviour
         
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
-        playersReenactedThisRound++; 
+        playersReenactedThisRound++;
+
+        timer = 0; 
 
         StartCoroutine(StartNewReenactRound());
     }
