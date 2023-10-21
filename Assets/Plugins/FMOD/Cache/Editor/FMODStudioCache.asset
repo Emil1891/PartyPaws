@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638334862034629892
+  lastModified: 638334889778619181
   FileSizes:
   - Name: Desktop
-    Value: 5622848
+    Value: 5371200
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -201,11 +201,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 43200
+  Length: 9600
 --- !u!114 &-4085122421993530809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,12 +228,12 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters:
   - {fileID: 430679799237436521}
   MinDistance: 1
   MaxDistance: 20
-  Length: 24000
+  Length: 9600
 --- !u!114 &-3963581550362739636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,11 +308,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 22153
+  Length: 14769
 --- !u!114 &-2479273969084570135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4083
+  Length: 3250
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638334862034659915
+  cacheTime: 638334889778659229
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -491,11 +491,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 19200
+  Length: 12800
 --- !u!114 &430679799237436521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,11 +570,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 19200
+  Length: 12800
 --- !u!114 &1925996801539801986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638334862034659915
+  lastModified: 638334889778659229
   FileSizes:
   - Name: Desktop
     Value: 2110
@@ -1036,11 +1036,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 32000
+  Length: 12800
 --- !u!114 &8885621652553317647
 MonoBehaviour:
   m_ObjectHideFlags: 0
