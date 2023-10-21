@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
 
         int songIndex = UnityEngine.Random.Range(1, 8);
 
-        //TODO: Kalla p� random val av l�t
         Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
 
         //Ladda Drumkittet som passar ihop med l�ten
@@ -154,7 +153,7 @@ public class GameManager : MonoBehaviour
         if (composerPlayerIndex >= players.Length)
         {
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            FullRoundEnd();
+            StartCoroutine(FullRoundEnd());
             yield break; 
         }
 
@@ -174,7 +173,7 @@ public class GameManager : MonoBehaviour
 
         playerImage.sprite = players[composerPlayerIndex].GetComponent<PlayerInfo>().sprite; 
         
-        currentPlayerText.SetText("Composing"); 
+        currentPlayerText.SetText("COMPOSING"); 
         
         yield return new WaitForSeconds(countdownLength); 
         
@@ -195,12 +194,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ComposeRoundEnd());
     }
 
-    private void FullRoundEnd()
+    private IEnumerator FullRoundEnd()
     {
-        Debug.Log("Game over"); 
+        Debug.Log("Game over");
 
+        currentGameState = GameState.FailWait; // not fail but serves the same purpose 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/NarratorGameEnd");
+        
         // change input to watcher 
-        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
+        currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
+
+        yield return new WaitForSeconds(12.0f); 
         
         FindObjectOfType<SceneLoader>().LoadScene("ResultsScreen"); 
     }
@@ -232,7 +236,7 @@ public class GameManager : MonoBehaviour
             reenactIndex -= players.Length;
 
         playerImage.sprite = players[reenactIndex].GetComponent<PlayerInfo>().sprite; 
-        currentPlayerText.SetText("Repeating"); 
+        currentPlayerText.SetText("REPEATING"); 
 
         NarratorCallOut.setParameterByName("animalType", reenactIndex);
         NarratorCallOut.start();
