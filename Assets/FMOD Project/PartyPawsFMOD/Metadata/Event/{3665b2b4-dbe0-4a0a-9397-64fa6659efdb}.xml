@@ -133,7 +133,7 @@
 	</object>
 	<object class="SingleSound" id="{27ccf365-294d-40d7-9215-7d475c905441}">
 		<property name="start">
-			<value>2</value>
+			<value>2.7999999999999998</value>
 		</property>
 		<property name="length">
 			<value>0.20000000000000001</value>
@@ -147,10 +147,10 @@
 	</object>
 	<object class="SingleSound" id="{9e21a5e1-633a-47a3-b8c4-aabe349fb30c}">
 		<property name="start">
-			<value>2.9500000000000002</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.049999999999999822</value>
+			<value>0.25</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{251b65d9-5fa3-4943-9af8-e85e25f8f48a}</destination>
