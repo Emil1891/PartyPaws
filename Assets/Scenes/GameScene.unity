@@ -2967,6 +2967,7 @@ MonoBehaviour:
   - {fileID: 942172237}
   - {fileID: 630028202}
   - {fileID: 939706704}
+  currentPlayerText: {fileID: 607993669}
   composeTimeDelay: 0.1
 --- !u!4 &1800379945
 Transform:
