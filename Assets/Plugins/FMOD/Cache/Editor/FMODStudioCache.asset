@@ -44,7 +44,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638335094819686744
+  lastModified: 638335090186675076
   FileSizes:
   - Name: Desktop
     Value: 5431904
@@ -468,7 +468,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Drums.bank
   Name: Drums
   StudioPath: bank:/Drums
-  lastModified: 638335074727631564
+  lastModified: 638335069555834606
   FileSizes:
   - Name: Desktop
     Value: 175552
@@ -527,7 +527,7 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638335094819686744
+  cacheTime: 638335090186675076
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -808,7 +808,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638335074728011912
+  lastModified: 638335069556244691
   FileSizes:
   - Name: Desktop
     Value: 2384576
@@ -828,7 +828,7 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638335094819686744
+  lastModified: 638335090186675076
   FileSizes:
   - Name: Desktop
     Value: 2486
