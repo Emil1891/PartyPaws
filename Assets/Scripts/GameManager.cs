@@ -42,8 +42,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
 
+        //TODO: Kalla på random val av låt
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
+        //Ladda Drumkittet som passar ihop med låten
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 2");
 
         // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -57,7 +60,6 @@ public class GameManager : MonoBehaviour
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>();
 
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 1");
 
         currentPlayer = players[0]; 
 
