@@ -51,14 +51,18 @@ public class GameManager : MonoBehaviour
         NarratorCallOut = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorCalloutAnimal");
 
 
-        int songIndex = UnityEngine.Random.Range(1, 7);
+        int songIndex = UnityEngine.Random.Range(1, 8);
 
         //TODO: Kalla p� random val av l�t
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
-        //Ladda Drumkittet som passar ihop med l�ten
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
+        //Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music7");
 
-        if(songIndex == 1 || songIndex == 2)
+        //Ladda Drumkittet som passar ihop med l�ten
+       // DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 7");
+
+
+        if (songIndex == 1 || songIndex == 2 || songIndex == 7)
         {
             songLength = 4.8f;
             countdownLength = 4.8f;
