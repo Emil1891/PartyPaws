@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image playerImage;
 
     [SerializeField] private TextMeshProUGUI[] pointsText; 
+    
+    [SerializeField] private TextMeshProUGUI currentPlayerText; 
 
     //150 BPM = 6.4
     //130 BPM = 7.385
@@ -171,6 +173,8 @@ public class GameManager : MonoBehaviour
 
         playerImage.sprite = players[composerPlayerIndex].GetComponent<PlayerInfo>().sprite; 
         
+        currentPlayerText.SetText("Composing"); 
+        
         yield return new WaitForSeconds(countdownLength); 
         
         Debug.Log("New round started");
@@ -207,9 +211,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-
-
-
+        
         Music.setTimelinePosition(0);
 
         // Music.setVolume(1.0f);
@@ -227,6 +229,7 @@ public class GameManager : MonoBehaviour
             reenactIndex -= players.Length;
 
         playerImage.sprite = players[reenactIndex].GetComponent<PlayerInfo>().sprite; 
+        currentPlayerText.SetText("Repeating"); 
 
         NarratorCallOut.setParameterByName("animalType", reenactIndex);
         NarratorCallOut.start();
