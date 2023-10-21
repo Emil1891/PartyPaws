@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     private GameState currentGameState = GameState.Transition; 
 
     private FMOD.Studio.EventInstance NarratorSound;
+    private FMOD.Studio.EventInstance NarratorCallOut;
     private FMOD.Studio.EventInstance Music;
+    private FMOD.Studio.EventInstance DrumKit;
 
     private GameObject[] players; 
 
@@ -33,8 +35,7 @@ public class GameManager : MonoBehaviour
     private Track currentTrack = new Track();
 
     private ButtonPromptSpawner btnPromptSpawner; 
-    
-    private FMOD.Studio.EventInstance DrumKit;
+
 
     private float songLength = 4.8f; 
     private float countdownLength = 4.8f;
@@ -55,15 +56,19 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
+        NarratorCallOut = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorCalloutAnimal");
 
-        int songIndex = UnityEngine.Random.Range(1, 7);
+
+        int songIndex = UnityEngine.Random.Range(1, 8);
 
         //TODO: Kalla p� random val av l�t
         Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
+
         //Ladda Drumkittet som passar ihop med l�ten
         DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
 
-        if(songIndex == 1 || songIndex == 2)
+
+        if (songIndex == 1 || songIndex == 2 || songIndex == 7)
         {
             songLength = 4.8f;
             countdownLength = 4.8f;
@@ -211,21 +216,29 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-        
+
+
+
         Music.setTimelinePosition(0);
+
         // Music.setVolume(1.0f);
         StartCoroutine(EnableMusicVolume()); 
         
         currentGameState = GameState.Transition;
         
         timer = 0; 
-        currentTrack.NewReenactStarted(); 
+
+        currentTrack.NewReenactStarted();
+
         int reenactIndex = composerPlayerIndex + playersReenactedThisRound;
-        
+
         if (reenactIndex >= players.Length)
-            reenactIndex -= players.Length; 
-        
+            reenactIndex -= players.Length;
+
         playerImage.sprite = players[reenactIndex].GetComponent<PlayerInfo>().sprite; 
+
+        NarratorCallOut.setParameterByName("animalType", reenactIndex);
+        NarratorCallOut.start();
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -234,7 +247,7 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.Reenacting;
         
         currentPlayer = players[reenactIndex]; 
-        
+
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer);
 
         // Start coroutine that will run after song ends 
