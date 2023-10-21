@@ -38,9 +38,11 @@ public class PlayerMenuManager : MonoBehaviour
     // Function called when a new player is added 
     public void OnPlayerJoined()
     {
-        PlayerInfo newInfo = playerInfo[playerCount]; 
+        PlayerInfo newInfo = playerInfo[playerCount];
 
-        newInfo.screen.GetComponentInChildren<Image>().sprite = newInfo.sprite; 
+        var image = newInfo.screen.GetComponentInChildren<Image>(); 
+        image.sprite = newInfo.sprite; 
+        image.color = Color.white;  
         newInfo.screen.GetComponentInChildren<TextMeshProUGUI>().SetText(newInfo.name); 
 
         AnimalSound.setParameterByName("animalType", playerCount);
