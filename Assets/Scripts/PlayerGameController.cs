@@ -40,7 +40,7 @@ public class PlayerGameController : MonoBehaviour
         
         if (cheerTimer > cheerDelay)
         {
-            AnimalSound.setParameterByName("animalType", GetComponent<PlayerInput>().user.id - 1); 
+            AnimalSound.setParameterByName("animalType", GetComponent<PlayerInfo>().playerIndex); 
             AnimalSound.start();
             cheerTimer = 0; 
         }
