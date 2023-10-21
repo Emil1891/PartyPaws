@@ -44,10 +44,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638335050982718442
+  lastModified: 638335055019416408
   FileSizes:
   - Name: Desktop
-    Value: 5364416
+    Value: 5366144
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -440,10 +440,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Drums.bank
   Name: Drums
   StudioPath: bank:/Drums
-  lastModified: 638335050982448206
+  lastModified: 638335055018045177
   FileSizes:
   - Name: Desktop
-    Value: 161056
+    Value: 175552
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -489,13 +489,16 @@ MonoBehaviour:
   - {fileID: -2693117463278135468}
   - {fileID: -3609765676633524707}
   - {fileID: 5231379312487480480}
+  - {fileID: 1282436380322553738}
+  - {fileID: 3458675179851700167}
+  - {fileID: 4984245747981540804}
   EditorParameters:
   - {fileID: 7875418267720883287}
   MasterBanks:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638335050982778496
+  cacheTime: 638335055020722676
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -606,6 +609,82 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12800
+--- !u!114 &1220226945010441622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NarratorCallOutAnimal/animalType
+  m_EditorClassIdentifier: 
+  Name: animalType
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 3569095116
+    data2: 2598467774
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1282436380322553738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NarratorCallOutAnimal
+  m_EditorClassIdentifier: 
+  Path: event:/NarratorCallOutAnimal
+  Guid:
+    Data1: 2066229227
+    Data2: 1174850882
+    Data3: 518870925
+    Data4: 630339774
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1220226945010441622}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1887098824969579060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Drum Hit 7/hitType
+  m_EditorClassIdentifier: 
+  Name: hitType
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3188130722
+    data2: 663672402
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &1925996801539801986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,10 +779,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638335050982778496
+  lastModified: 638335055020722676
   FileSizes:
   - Name: Desktop
-    Value: 2123872
+    Value: 2384576
   Exists: 1
 --- !u!114 &3150964276307154680
 MonoBehaviour:
@@ -720,11 +799,39 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638335011929377356
+  lastModified: 638335055019446435
   FileSizes:
   - Name: Desktop
-    Value: 2278
+    Value: 2398
   Exists: 1
+--- !u!114 &3458675179851700167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drum Hit 7
+  m_EditorClassIdentifier: 
+  Path: event:/Drum Hit 7
+  Guid:
+    Data1: 1784133228
+    Data2: 1252085997
+    Data3: 376610689
+    Data4: 1797868608
+  Banks:
+  - {fileID: -238376589227855136}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1887098824969579060}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4685493337347662952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +911,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1233
+--- !u!114 &4984245747981540804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music7
+  m_EditorClassIdentifier: 
+  Path: event:/Music7
+  Guid:
+    Data1: -2092214505
+    Data2: 1270917527
+    Data3: -741036124
+    Data4: 859135475
+  Banks:
+  - {fileID: 3081593741725757200}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9600
 --- !u!114 &5231379312487480480
 MonoBehaviour:
   m_ObjectHideFlags: 0

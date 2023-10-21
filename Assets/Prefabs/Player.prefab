@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -2034042771002677825}
   - component: {fileID: -4529119789968008441}
   - component: {fileID: 894575885089128601}
+  - component: {fileID: -7616474880167143468}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -206,3 +207,28 @@ MonoBehaviour:
   - CurrentPlayer
   - Watcher
   playerInput: {fileID: -2034042771002677825}
+--- !u!114 &-7616474880167143468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983694341761794769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cb1cdd7665a1f4ea27055ded4f70ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 0665ac51897d1774a8617cbd20777d8a, type: 3}
+  - {fileID: 21300000, guid: 99dfd66b577fc644db94c96c762a1224, type: 3}
+  - {fileID: 21300000, guid: e71889552097eb1499aa845ea98ae48a, type: 3}
+  - {fileID: 21300000, guid: f930af33edb90f743a8eaebb9a03a5f5, type: 3}
+  names:
+  - Goose
+  - Polar Bear
+  - Dolphin
+  - Sproingy
+  name: 
+  sprite: {fileID: 0}
+  points: 0
