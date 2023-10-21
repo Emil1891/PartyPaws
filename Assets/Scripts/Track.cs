@@ -39,7 +39,7 @@ public class Track
             // more time has passed than what is required to consider it a success, then player has failed 
             if (time > note.GetTime() + graceRange)
             {
-                Debug.LogError($"1out of time range, diff: {time - note.GetTime() + graceRange}, time: {time}, reenactor size: {reenactorNotes.Count}");
+                Debug.Log($"1out of time range, diff: {time - note.GetTime() + graceRange}, time: {time}, reenactor size: {reenactorNotes.Count}");
                 return true;
             }
 

@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
                 btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), GameState.Reenacting); 
             }
             
-            if (currentTrack.PlayerMissedNote(timer))
+            if (currentGameState.Equals(GameState.Reenacting) && currentTrack.PlayerMissedNote(timer))
             {
                 Debug.Log("failed from update");
                 ReenactFailed(); 
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
             FullRoundEnd();
             yield break; 
         }
+        
         Music.setVolume(1.0f);
         Music.setTimelinePosition(0);
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
+        Music.setVolume(1.0f);
         Music.setTimelinePosition(0);
 
         currentGameState = GameState.Transition;
@@ -176,13 +178,13 @@ public class GameManager : MonoBehaviour
 
     private void ReenactFailed()
     {
-        PrepareForNewReenactRound(); 
-
         Music.setVolume(0.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/FailSound");
         
         StopAllCoroutines(); 
 
+        PrepareForNewReenactRound(); 
+        
         Debug.Log("Failed"); 
     }
     
