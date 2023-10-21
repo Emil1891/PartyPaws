@@ -44,10 +44,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638335055019416408
+  lastModified: 638335068167024030
   FileSizes:
   - Name: Desktop
-    Value: 5366144
+    Value: 5431904
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -200,8 +200,8 @@ MonoBehaviour:
     Data3: -1900406397
     Data4: -1472790241
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -228,8 +228,8 @@ MonoBehaviour:
     Data3: 1658792867
     Data4: 503015401
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -290,6 +290,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9500
+--- !u!114 &-3343445334950109065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/IntroNotes
+  m_EditorClassIdentifier: 
+  Path: event:/UI/IntroNotes
+  Guid:
+    Data1: -534878080
+    Data2: 1085187237
+    Data3: 670072193
+    Data4: -1078449555
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8832655856876688152}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2693117463278135468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,8 +337,8 @@ MonoBehaviour:
     Data3: -1653155140
     Data4: 971367034
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -492,13 +520,14 @@ MonoBehaviour:
   - {fileID: 1282436380322553738}
   - {fileID: 3458675179851700167}
   - {fileID: 4984245747981540804}
+  - {fileID: -3343445334950109065}
   EditorParameters:
   - {fileID: 7875418267720883287}
   MasterBanks:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638335055020722676
+  cacheTime: 638335068167054059
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -519,8 +548,8 @@ MonoBehaviour:
     Data3: -1568651078
     Data4: 1676088801
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -600,8 +629,8 @@ MonoBehaviour:
     Data3: -848487544
     Data4: -553591288
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -799,10 +828,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638335055019446435
+  lastModified: 638335068167054059
   FileSizes:
   - Name: Desktop
-    Value: 2398
+    Value: 2486
   Exists: 1
 --- !u!114 &3458675179851700167
 MonoBehaviour:
@@ -1245,8 +1274,8 @@ MonoBehaviour:
     Data3: -2126069586
     Data4: -1649090722
   Banks:
-  - {fileID: -9038441687832030407}
   - {fileID: 3081593741725757200}
+  - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -1254,6 +1283,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12800
+--- !u!114 &8832655856876688152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IntroNotes/notesInSuccession
+  m_EditorClassIdentifier: 
+  Name: notesInSuccession
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3387537505
+    data2: 491096095
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &8885621652553317647
 MonoBehaviour:
   m_ObjectHideFlags: 0
