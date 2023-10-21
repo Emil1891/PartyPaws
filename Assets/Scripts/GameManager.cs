@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
         
         if (composerPlayerIndex >= players.Length)
         {
-            Music.getTempo();
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             FullRoundEnd();
             yield break; 
