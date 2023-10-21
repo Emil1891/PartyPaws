@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
 
     private int playersReenactedThisRound = 0;
 
-    [SerializeField] private TextMeshProUGUI timerText;
-
     private float timer = 0; 
 
     private Track currentTrack = new Track();
@@ -131,13 +129,7 @@ public class GameManager : MonoBehaviour
         {
             var increasePerSec = 1 / countdownLength; 
             timerSlider.value = Mathf.Clamp(timerSlider.value + increasePerSec * Time.deltaTime, 0, 1); 
-        }
-
-
-        if(currentGameState.Equals(GameState.Transition))
-            timerText.SetText("Transitioning");
-        else
-            timerText.SetText($"Time elapsed: {(timer - countdownLength):0.00}"); 
+        } 
 
         if (currentGameState.Equals(GameState.Reenacting) || currentGameState.Equals(GameState.Transition))
         {
@@ -152,7 +144,6 @@ public class GameManager : MonoBehaviour
                 ReenactFailed(); 
             }
         } 
-
     }
 
     private IEnumerator StartNewComposeRound()

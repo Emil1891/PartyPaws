@@ -226,9 +226,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f930af33edb90f743a8eaebb9a03a5f5, type: 3}
   names:
   - Goose
-  - Polar Bear
+  - PolarBear
   - Dolphin
-  - Sproingy
-  name: 
+  - Worm
+  playerName: 
   sprite: {fileID: 0}
   points: 0
