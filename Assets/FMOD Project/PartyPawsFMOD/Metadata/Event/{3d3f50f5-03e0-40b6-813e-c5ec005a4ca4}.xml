@@ -67,7 +67,7 @@
 			<destination>{10985cf1-2a24-4835-965d-d289d2770d37}</destination>
 			<destination>{c31182ea-e5f6-4eab-ad14-32e1c7657e52}</destination>
 			<destination>{66d63d5d-d6de-4258-9c11-724e60277169}</destination>
-			<destination>{86247b18-c5bc-4fdb-b048-238f8bb64c7b}</destination>
+			<destination>{f949be5a-5d18-42ff-ae75-cc8ba62d5248}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{87584dbb-fa0f-409a-be0f-4f12aa711095}</destination>
@@ -83,7 +83,7 @@
 			<destination>{10985cf1-2a24-4835-965d-d289d2770d37}</destination>
 			<destination>{c31182ea-e5f6-4eab-ad14-32e1c7657e52}</destination>
 			<destination>{66d63d5d-d6de-4258-9c11-724e60277169}</destination>
-			<destination>{86247b18-c5bc-4fdb-b048-238f8bb64c7b}</destination>
+			<destination>{f949be5a-5d18-42ff-ae75-cc8ba62d5248}</destination>
 		</relationship>
 		<relationship name="preset">
 			<destination>{7fa0ac8a-ad4c-475f-be15-9bf1d53e8ecc}</destination>
@@ -130,7 +130,7 @@
 	</object>
 	<object class="SingleSound" id="{66d63d5d-d6de-4258-9c11-724e60277169}">
 		<property name="start">
-			<value>1</value>
+			<value>2.7999999999999998</value>
 		</property>
 		<property name="length">
 			<value>0.20000000000000001</value>
@@ -142,18 +142,15 @@
 			<destination>{475b3a05-c701-44ee-8807-a99d09e686fe}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{86247b18-c5bc-4fdb-b048-238f8bb64c7b}">
+	<object class="SingleSound" id="{f949be5a-5d18-42ff-ae75-cc8ba62d5248}">
 		<property name="start">
-			<value>2.7999999999999998</value>
+			<value>1</value>
 		</property>
 		<property name="length">
 			<value>0.20000000000000001</value>
 		</property>
-		<property name="volume">
-			<value>-4</value>
-		</property>
 		<relationship name="audioFile">
-			<destination>{8d8589a4-bb0d-43f9-a3ce-07dd6bbb9d5e}</destination>
+			<destination>{bd45a6a5-60ef-4056-9c1a-704d459eeb58}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{87584dbb-fa0f-409a-be0f-4f12aa711095}">

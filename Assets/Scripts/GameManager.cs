@@ -35,9 +35,10 @@ public class GameManager : MonoBehaviour
     private FMOD.Studio.EventInstance DrumKit;
 
     private float songLength = 4.8f; 
-    
+    private float countdownLength = 4.8f; 
 
-    private const float countdownLength = 4.8f; 
+    //150 BPM = 6.4
+    //130 BPM = 7.385
     
     private float composeTimer = 0; 
     
@@ -50,10 +51,29 @@ public class GameManager : MonoBehaviour
 
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
+        int songIndex = UnityEngine.Random.Range(1, 7);
+
         //TODO: Kalla p� random val av l�t
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
         //Ladda Drumkittet som passar ihop med l�ten
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 2");
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
+
+        if(songIndex == 1 || songIndex == 2)
+        {
+            songLength = 4.8f;
+            countdownLength = 4.8f;
+        }
+        else if(songIndex == 3 || songIndex == 4 || songIndex == 5)
+        {
+            songLength = 6.4f;
+            countdownLength = 6.4f;
+        }
+
+        else if(songIndex == 6)
+        {
+            songLength = 7.385f;
+            countdownLength = 7.385f;
+        }
 
         players = GameObject.FindGameObjectsWithTag("Player");
 
