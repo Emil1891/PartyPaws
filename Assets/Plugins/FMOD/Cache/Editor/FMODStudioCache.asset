@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638334820238758316
+  lastModified: 638334899359176898
   FileSizes:
   - Name: Desktop
-    Value: 5114816
+    Value: 5371424
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -201,11 +201,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 43200
+  Length: 9600
 --- !u!114 &-4085122421993530809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,11 +228,12 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
-  Parameters: []
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 430679799237436521}
   MinDistance: 1
   MaxDistance: 20
-  Length: 24000
+  Length: 9600
 --- !u!114 &-3963581550362739636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3609765676633524707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/NarratorCongrats
+  m_EditorClassIdentifier: 
+  Path: event:/UI/NarratorCongrats
+  Guid:
+    Data1: 1691391094
+    Data2: 1254607851
+    Data3: -243181661
+    Data4: -1984225124
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7383243646909772657}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10000
 --- !u!114 &-2693117463278135468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,11 +308,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 22153
+  Length: 14769
 --- !u!114 &-2479273969084570135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +418,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4083
+  Length: 3250
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,12 +459,15 @@ MonoBehaviour:
   - {fileID: 6885915680502143268}
   - {fileID: -5462728931368462612}
   - {fileID: -2693117463278135468}
-  EditorParameters: []
+  - {fileID: -3609765676633524707}
+  - {fileID: 5231379312487480480}
+  EditorParameters:
+  - {fileID: 7875418267720883287}
   MasterBanks:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638334820238842088
+  cacheTime: 638334899359212452
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -459,11 +491,35 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 19200
+  Length: 12800
+--- !u!114 &430679799237436521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music1/amountOfPlays
+  m_EditorClassIdentifier: 
+  Name: amountOfPlays
+  StudioPath: 
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 3842129162
+    data2: 3804325251
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &799217082350952025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,11 +570,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 19200
+  Length: 12800
 --- !u!114 &1925996801539801986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +630,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 40000
+--- !u!114 &2987958453107345123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/RoundOver/animalType
+  m_EditorClassIdentifier: 
+  Name: animalType
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 3569095116
+    data2: 2598467774
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3150964276307154680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,10 +669,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638334820238842088
+  lastModified: 638334899359212452
   FileSizes:
   - Name: Desktop
-    Value: 1930
+    Value: 2110
   Exists: 1
 --- !u!114 &4685493337347662952
 MonoBehaviour:
@@ -617,7 +697,8 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 2987958453107345123}
   MinDistance: 1
   MaxDistance: 20
   Length: 36571
@@ -672,6 +753,58 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4250
+--- !u!114 &5231379312487480480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drum Hit 6
+  m_EditorClassIdentifier: 
+  Path: event:/Drum Hit 6
+  Guid:
+    Data1: -1295102815
+    Data2: 1096261922
+    Data3: 2082814141
+    Data4: 889804217
+  Banks:
+  - {fileID: -9038441687832030407}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5448407993346606165}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5448407993346606165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Drum Hit 6/hitType
+  m_EditorClassIdentifier: 
+  Name: hitType
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3188130722
+    data2: 663672402
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5718681586482487870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +964,54 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7383243646909772657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NarratorCongrats/animalType
+  m_EditorClassIdentifier: 
+  Name: animalType
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 3569095116
+    data2: 2598467774
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &7875418267720883287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amountOfPlayers
+  m_EditorClassIdentifier: 
+  Name: amountOfPlayers
+  StudioPath: parameter:/amountOfPlayers
+  Min: 2
+  Max: 4
+  Default: 2
+  ID:
+    data1: 1834135994
+    data2: 1537968366
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &8042511999973193901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,11 +1061,11 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 32000
+  Length: 12800
 --- !u!114 &8885621652553317647
 MonoBehaviour:
   m_ObjectHideFlags: 0

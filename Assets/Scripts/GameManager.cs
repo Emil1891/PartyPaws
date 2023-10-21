@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState = GameState.Transition; 
 
     private FMOD.Studio.EventInstance NarratorSound;
-    
+    private FMOD.Studio.EventInstance Music;
+
     private GameObject[] players; 
 
     private GameObject currentPlayer; 
@@ -34,13 +35,18 @@ public class GameManager : MonoBehaviour
     
     private FMOD.Studio.EventInstance DrumKit;
 
-    private float songLength = 4.8f * 2; 
+    private float songLength = 4.8f; 
     
     private const float countdownLength = 4.8f; 
 
     private void Start()
     {
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
+
+        //TODO: Kalla på random val av låt
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
+        //Ladda Drumkittet som passar ihop med låten
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 2");
 
         // DontDestroyOnLoad(gameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -54,11 +60,11 @@ public class GameManager : MonoBehaviour
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>();
 
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 1");
 
         currentPlayer = players[0]; 
 
-        StartCoroutine(StartNewComposeRound()); 
+        StartCoroutine(StartNewComposeRound());
+        Music.start();
     }
 
     private void Update()
@@ -95,9 +101,15 @@ public class GameManager : MonoBehaviour
         
         if (composerPlayerIndex >= players.Length)
         {
+            Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             FullRoundEnd();
             yield break; 
         }
+        Music.setVolume(1.0f);
+        Music.setTimelinePosition(0);
+        NarratorSound.setParameterByName("animalType", composerPlayerIndex);
+        NarratorSound.start();
+
 
         currentGameState = GameState.Transition;
 
@@ -112,9 +124,6 @@ public class GameManager : MonoBehaviour
 
         currentPlayer = players[composerPlayerIndex]; 
 
-        NarratorSound.setParameterByName("animalType", composerPlayerIndex);
-        NarratorSound.start();
-        
         players[composerPlayerIndex].GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.CurrentPlayer); 
 
         currentGameState = GameState.Composing; 
@@ -148,7 +157,9 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-        
+
+        Music.setTimelinePosition(0);
+
         currentGameState = GameState.Transition;
 
         yield return new WaitForSeconds(countdownLength); 
@@ -176,9 +187,15 @@ public class GameManager : MonoBehaviour
 
     private void ReenactFailed()
     {
+
+        Music.setVolume(0.0f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/FailSound");
+
         playersReenactedThisRound++; 
         
-        PrepareForNewReenactRound(); 
+        StopAllCoroutines(); 
+
+        PrepareForNewReenactRound();
 
         Debug.Log("Failed"); 
     }
@@ -281,14 +298,18 @@ public class GameManager : MonoBehaviour
     private IEnumerator ReenactRoundEnd()
     {
         // const float songLength = 16f; // TODO: GET THE LENGTH DYNAMICALLY 
-        yield return new WaitForSeconds(songLength); 
-        
+        yield return new WaitForSeconds(songLength);
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/WinSound");
+
         PrepareForNewReenactRound(); 
     }
 
     private void PrepareForNewReenactRound()
     {
-        Debug.Log("Reenact round ended"); 
+        Debug.Log("Reenact round ended");
+
+        currentGameState = GameState.Transition; 
         
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
