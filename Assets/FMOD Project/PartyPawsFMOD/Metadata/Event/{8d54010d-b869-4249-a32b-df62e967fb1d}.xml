@@ -42,6 +42,7 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{8d3d67bc-5ac4-4f90-9171-12d1e94b8054}</destination>
+			<destination>{37e2b869-7e5e-4899-a3bc-8893fb9fdb43}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{de5ceabd-67bf-4b74-85d1-69ca5e9367e8}">
@@ -62,7 +63,7 @@
 			<destination>{7e95c78d-7190-4a13-8daa-7a270597fe24}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8cf90f76-bd04-4c92-a177-578b391837c2}</destination>
+			<destination>{94eb1874-14fa-4263-a2df-92f482b12885}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{9742bf6a-304a-4639-a0d3-19dee6279d5b}" />
@@ -70,7 +71,6 @@
 	<object class="GroupTrack" id="{74f3ec02-f30c-4976-8d42-49d4cedf960f}">
 		<relationship name="modules">
 			<destination>{700edd26-c31a-46d9-8a1c-5007573ed614}</destination>
-			<destination>{3a96a4e8-efc3-4066-856e-d308c265aca7}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{8e1bc130-47b8-4e42-be94-c01235774065}</destination>
@@ -128,7 +128,6 @@
 			<destination>{0aa2f2d3-c119-4de2-856e-7f659576a8d2}</destination>
 			<destination>{2a410290-c136-416f-ba4e-aaac6961aaf3}</destination>
 			<destination>{44f3df6c-964c-4009-a390-3e8c3866fe97}</destination>
-			<destination>{3a96a4e8-efc3-4066-856e-d308c265aca7}</destination>
 			<destination>{e742fb86-bc59-4572-9d10-96b1dd7c2bc0}</destination>
 			<destination>{f0686b00-9813-45b5-912a-3177b7e00930}</destination>
 			<destination>{b44cb0c2-89a9-422d-a3bb-0a1e89fe594e}</destination>
@@ -163,14 +162,6 @@
 		<property name="start">
 			<value>4.8000000000000531</value>
 		</property>
-		<property name="length">
-			<value>4.7999999999999998</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{558bd842-3f88-43b9-9b22-2d010a1738ac}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{3a96a4e8-efc3-4066-856e-d308c265aca7}">
 		<property name="length">
 			<value>4.7999999999999998</value>
 		</property>

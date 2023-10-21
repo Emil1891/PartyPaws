@@ -19,6 +19,7 @@ MonoBehaviour:
     Data3: -1203506287
     Data4: 772396711
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -43,10 +44,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638334899359176898
+  lastModified: 638334940305369954
   FileSizes:
   - Name: Desktop
-    Value: 5371424
+    Value: 5358144
   Exists: 1
 --- !u!114 &-7693404069267206841
 MonoBehaviour:
@@ -67,6 +68,7 @@ MonoBehaviour:
     Data3: -742841439
     Data4: 668716336
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -199,6 +201,7 @@ MonoBehaviour:
     Data4: -1472790241
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -226,6 +229,7 @@ MonoBehaviour:
     Data4: 503015401
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -306,6 +310,7 @@ MonoBehaviour:
     Data4: 971367034
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -332,6 +337,7 @@ MonoBehaviour:
     Data3: -322617727
     Data4: -1538500096
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -419,6 +425,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3250
+--- !u!114 &-238376589227855136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Drums.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Drums.bank
+  Name: Drums
+  StudioPath: bank:/Drums
+  lastModified: 638334925531757559
+  FileSizes:
+  - Name: Desktop
+    Value: 157888
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +460,8 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 3150964276307154680}
   - {fileID: -9038441687832030407}
+  - {fileID: -238376589227855136}
+  - {fileID: 3081593741725757200}
   EditorEvents:
   - {fileID: 5876359751467825299}
   - {fileID: -4213299201013812508}
@@ -467,7 +495,7 @@ MonoBehaviour:
   - {fileID: -9038441687832030407}
   StringsBanks:
   - {fileID: 3150964276307154680}
-  cacheTime: 638334899359212452
+  cacheTime: 638334940306564263
   cacheVersion: 131608
 --- !u!114 &399287439364120815
 MonoBehaviour:
@@ -489,6 +517,7 @@ MonoBehaviour:
     Data4: 1676088801
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -539,6 +568,7 @@ MonoBehaviour:
     Data3: -94070893
     Data4: -605071002
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -568,6 +598,7 @@ MonoBehaviour:
     Data4: -553591288
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -654,6 +685,26 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3081593741725757200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638334940306564263
+  FileSizes:
+  - Name: Desktop
+    Value: 2120800
+  Exists: 1
 --- !u!114 &3150964276307154680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,10 +720,10 @@ MonoBehaviour:
   Path: Assets/FMOD Project/PartyPawsFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638334899359212452
+  lastModified: 638334940305410015
   FileSizes:
   - Name: Desktop
-    Value: 2110
+    Value: 2278
   Exists: 1
 --- !u!114 &4685493337347662952
 MonoBehaviour:
@@ -746,13 +797,13 @@ MonoBehaviour:
     Data4: 1481103571
   Banks:
   - {fileID: -9038441687832030407}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4250
+  Length: 1233
 --- !u!114 &5231379312487480480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,6 +823,7 @@ MonoBehaviour:
     Data3: 2082814141
     Data4: 889804217
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -955,6 +1007,7 @@ MonoBehaviour:
     Data3: -1297761602
     Data4: 1555258003
   Banks:
+  - {fileID: -238376589227855136}
   - {fileID: -9038441687832030407}
   IsStream: 0
   Is3D: 0
@@ -1059,6 +1112,7 @@ MonoBehaviour:
     Data4: -1649090722
   Banks:
   - {fileID: -9038441687832030407}
+  - {fileID: 3081593741725757200}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class GameManager : MonoBehaviour
 {
     
@@ -37,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private float songLength = 4.8f; 
     
+
     private const float countdownLength = 4.8f; 
     
     private float composeTimer = 0; 
@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
+
+
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
         //TODO: Kalla p� random val av l�t
@@ -62,7 +65,6 @@ public class GameManager : MonoBehaviour
         // Array.Sort(players, (p1, p2) => Random.Range(-10, 10)); 
 
         btnPromptSpawner = FindObjectOfType<ButtonPromptSpawner>();
-
 
         currentPlayer = players[0]; 
 
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
         
         if (composerPlayerIndex >= players.Length)
         {
+            Music.getTempo();
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             FullRoundEnd();
             yield break; 
