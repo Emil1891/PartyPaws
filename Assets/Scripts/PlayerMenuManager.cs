@@ -10,7 +10,17 @@ using UnityEngine.UI;
  */
 
 public class PlayerMenuManager : MonoBehaviour
-{    
+{  
+
+     private FMOD.Studio.EventInstance AnimalSound;
+     private FMOD.Studio.EventInstance UINav;
+
+    private void Start(){
+                AnimalSound = FMODUnity.RuntimeManager.CreateInstance("event:/AnimalSound");
+                AnimalSound.setVolume(0.3f);
+                UINav = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UINav");
+                UINav.setParameterByName("uiType", 2);
+    }
     
     [Serializable]
     public struct PlayerInfo 
@@ -32,7 +42,12 @@ public class PlayerMenuManager : MonoBehaviour
         newInfo.screen.GetComponentInChildren<Image>().sprite = newInfo.sprite; 
         newInfo.screen.GetComponentInChildren<TextMeshProUGUI>().SetText(newInfo.name); 
 
+        AnimalSound.setParameterByName("animalType", playerCount);
+        AnimalSound.start();
+        UINav.start();
+
         playerCount++; 
+        
         
         // TODO: Play animal related sound here? 
     }
