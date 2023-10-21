@@ -54,12 +54,10 @@ public class GameManager : MonoBehaviour
         int songIndex = UnityEngine.Random.Range(1, 8);
 
         //TODO: Kalla p� random val av l�t
-        //Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music7");
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
 
         //Ladda Drumkittet som passar ihop med l�ten
-       // DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 7");
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
 
 
         if (songIndex == 1 || songIndex == 2 || songIndex == 7)
