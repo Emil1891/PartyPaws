@@ -199,6 +199,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over");
 
         currentGameState = GameState.FailWait; // not fail but serves the same purpose 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/NarratorGameEnd");
         
         // change input to watcher 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
