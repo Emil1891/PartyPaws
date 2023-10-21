@@ -17,7 +17,6 @@ public class PlayerMenuManager : MonoBehaviour
 
     private void Start(){
                 AnimalSound = FMODUnity.RuntimeManager.CreateInstance("event:/AnimalSound");
-                AnimalSound.setVolume(0.3f);
                 UINav = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UINav");
                 UINav.setParameterByName("uiType", 2);
     }
