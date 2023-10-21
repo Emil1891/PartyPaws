@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     
     public enum GameState {
-        Composing = 0, Reenacting, Transition 
+        Composing = 0, Reenacting, Transition, FailWait 
     }
 
     private GameState currentGameState = GameState.Transition; 
@@ -35,25 +35,42 @@ public class GameManager : MonoBehaviour
     private FMOD.Studio.EventInstance DrumKit;
 
     private float songLength = 4.8f; 
-    
+    private float countdownLength = 4.8f; 
 
-    private const float countdownLength = 4.8f; 
+    //150 BPM = 6.4
+    //130 BPM = 7.385
     
-    private float composeTimer = 0; 
+    private float composeCoolDownTimer = 0; 
     
     [SerializeField] private float composeTimeDelay = 0.1f; 
 
     private void Start()
     {
-
-
-
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
+        int songIndex = UnityEngine.Random.Range(1, 7);
+
         //TODO: Kalla p� random val av l�t
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music2");
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music" + songIndex);
         //Ladda Drumkittet som passar ihop med l�ten
-        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit 2");
+        DrumKit = FMODUnity.RuntimeManager.CreateInstance("event:/Drum Hit " + songIndex);
+
+        if(songIndex == 1 || songIndex == 2)
+        {
+            songLength = 4.8f;
+            countdownLength = 4.8f;
+        }
+        else if(songIndex == 3 || songIndex == 4 || songIndex == 5)
+        {
+            songLength = 6.4f;
+            countdownLength = 6.4f;
+        }
+
+        else if(songIndex == 6)
+        {
+            songLength = 7.385f;
+            countdownLength = 7.385f;
+        }
 
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -74,8 +91,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (currentGameState.Equals(GameState.FailWait))
+            return; 
+        
         timer += Time.deltaTime;
-        composeTimer += Time.deltaTime; 
+        composeCoolDownTimer += Time.deltaTime; 
         
         if(currentGameState.Equals(GameState.Transition))
             timerText.SetText("Transitioning");
@@ -85,10 +105,9 @@ public class GameManager : MonoBehaviour
         if (currentGameState.Equals(GameState.Reenacting) || currentGameState.Equals(GameState.Transition))
         {
             Note noteToSpawn = currentTrack.GetNoteToSpawn(timer); 
+            
             if (noteToSpawn != null)
-            {
-                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), GameState.Reenacting); 
-            }
+                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), currentGameState);
             
             if (currentGameState.Equals(GameState.Reenacting) && currentTrack.PlayerMissedNote(timer))
             {
@@ -110,12 +129,17 @@ public class GameManager : MonoBehaviour
             yield break; 
         }
         
-        Music.setVolume(1.0f);
         Music.setTimelinePosition(0);
+        // Music.setVolume(1.0f);
+        StartCoroutine(EnableMusicVolume()); 
+        
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
         NarratorSound.start();
 
-        currentGameState = GameState.Transition; 
+        currentGameState = GameState.Transition;
+
+        timer = 0; 
+        currentTrack.NewCompRoundStarted(); 
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -129,7 +153,6 @@ public class GameManager : MonoBehaviour
 
         currentGameState = GameState.Composing; 
         
-        currentTrack.NewCompRoundStarted(); 
         
         composerPlayerIndex++;
         playersReenactedThisRound = 0; 
@@ -155,11 +178,15 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartNewComposeRound());
             yield break;
         }
-
-        Music.setVolume(1.0f);
+        
         Music.setTimelinePosition(0);
-
+        // Music.setVolume(1.0f);
+        StartCoroutine(EnableMusicVolume()); 
+        
         currentGameState = GameState.Transition;
+        
+        timer = 0; 
+        currentTrack.NewReenactStarted(); 
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -167,7 +194,6 @@ public class GameManager : MonoBehaviour
 
         currentGameState = GameState.Reenacting;
         
-        currentTrack.NewReenactStarted(); 
 
         int reenactIndex = composerPlayerIndex + playersReenactedThisRound;
 
@@ -182,14 +208,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ReenactRoundEnd()); 
     }
 
+    private IEnumerator EnableMusicVolume()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        Music.setVolume(1); 
+    }
+
     private void ReenactFailed()
     {
         Music.setVolume(0.0f);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/FailSound");
         
         StopAllCoroutines(); 
-
-        PrepareForNewReenactRound(); 
+        
+        StartCoroutine(PrepareForNewReenactRound(true)); 
         
         Debug.Log("Failed"); 
     }
@@ -218,13 +251,13 @@ public class GameManager : MonoBehaviour
 
     private void ComposedNewInput(char buttonName)
     {
-        if (composeTimer < composeTimeDelay)
+        if (composeCoolDownTimer < composeTimeDelay)
         {
-            Debug.Log($"Pressed too quickly, time since last press: {composeTimer}");
+            Debug.Log($"Pressed too quickly, time since last press: {composeCoolDownTimer}");
             return;
         }
 
-        composeTimer = 0; 
+        composeCoolDownTimer = 0; 
 
         // composing stuff 
         // Debug.Log($"Composing {buttonName}");
@@ -294,8 +327,6 @@ public class GameManager : MonoBehaviour
 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
 
-        timer = 0; 
-
         StartCoroutine(StartNewReenactRound());
     }
     
@@ -307,10 +338,10 @@ public class GameManager : MonoBehaviour
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/WinSound");
 
-        PrepareForNewReenactRound(); 
+        StartCoroutine(PrepareForNewReenactRound(false)); 
     }
 
-    private void PrepareForNewReenactRound()
+    private IEnumerator PrepareForNewReenactRound(bool failed)
     {
         Debug.Log("Reenact round ended");
 
@@ -320,7 +351,12 @@ public class GameManager : MonoBehaviour
         
         playersReenactedThisRound++;
 
-        timer = 0; 
+        if (failed)
+        {
+            Music.setVolume(0.0f);
+            currentGameState = GameState.FailWait; 
+            yield return new WaitForSeconds(3.5f);
+        }
 
         StartCoroutine(StartNewReenactRound());
     }
