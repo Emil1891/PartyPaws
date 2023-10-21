@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private static List<GameObject> players = new(); 
 
-    private bool hasRequestedJoin = false; 
+    private static bool hasRequestedJoin = false; 
 
     private void OnEnable()
     {
