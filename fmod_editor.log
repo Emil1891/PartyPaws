@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001CF2553D178 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001D68F9A8618 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,120 +18,15 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SoundI::release                          :  (000001CF259A8B28)
-[LOG] SoundI::release                          :     Excite1 (000001CE51FAB028)
-[LOG] SoundI::release                          :  (000001CF259A8848)
-[LOG] SoundI::release                          :     Excite2 (000001CF254CDB18)
-[LOG] SoundI::release                          :  (000001CF20600BD8)
-[LOG] SoundI::release                          :     Excite3 (000001CE54CC0848)
-[LOG] SoundI::release                          :  (000001CF259A6CF8)
-[LOG] SoundI::release                          :     Excite4 (000001CE4925E548)
-[LOG] SoundI::release                          :  (000001CF205FFA98)
-[LOG] SoundI::release                          :     Excite5 (000001CF4F3605A8)
-[LOG] SoundI::release                          :  (000001CF20602448)
-[LOG] SoundI::release                          :     Excite6 (000001CF546138E8)
-[LOG] SoundI::release                          :  (000001CF259A6FD8)
-[LOG] SoundI::release                          :     Excite7 (000001CF25F9C108)
-[LOG] SoundI::release                          :  (000001CF259A5488)
-[LOG] SoundI::release                          :     Excite8 (000001CE4925EA28)
-[LOG] SoundI::release                          :  (000001CF20602168)
-[LOG] SoundI::release                          :     Excite9 (000001CF54613C28)
-[LOG] SoundI::release                          :  (000001CF259A6178)
-[LOG] SoundI::release                          :     Excite10 (000001CF25F9BA88)
-[LOG] SoundI::release                          :  (000001CF259A68A8)
-[LOG] SoundI::release                          :     Excite11 (000001CE510CA578)
-[LOG] SoundI::release                          :  (000001CF259A4A78)
-[LOG] SoundI::release                          :     Dolphin (000001CE510CA098)
-[LOG] SoundI::release                          :  (000001CF259A5A48)
-[LOG] SoundI::release                          :     Sproingy (000001CF25F9C5E8)
-[LOG] SoundI::release                          :  (000001CF259A8F78)
-[LOG] SoundI::release                          :     Bear (000001CF49B5C408)
-[LOG] SoundI::release                          :  (000001CF206025B8)
-[LOG] SoundI::release                          :     Goose (000001CF54613F68)
-[LOG] SoundI::release                          :  (000001CEFF7634A8)
-[LOG] SoundI::release                          :     hat (000001CF4D232708)
-[LOG] SoundI::release                          :  (000001CF259A9C68)
-[LOG] SoundI::release                          :     snare (000001CE510CA3D8)
-[LOG] SoundI::release                          :  (000001CF259A8E08)
-[LOG] SoundI::release                          :     kick (000001CE51FAA808)
-[LOG] SoundI::release                          :  (000001CF259A8568)
-[LOG] SoundI::release                          :     yeah (000001CF49B5C5A8)
-[LOG] SoundI::release                          :  (000001CF259A83F8)
-[LOG] SoundI::release                          :     ESM_Magic_Game_Sparkle_Spell_1_Fantasy_Cast_Craft_Mobile_App_Special_Touch_Pickup_Click (000001CF25F9C448)
-[LOG] SoundI::release                          :  (000001CF259AA228)
-[LOG] SoundI::release                          :     UI Slide 1 (000001CE510CA8B8)
-[LOG] SoundI::release                          :  (000001CF259A7148)
-[LOG] SoundI::release                          :     UI Slide 2 (000001CF53EAD568)
-[LOG] SoundI::release                          :  (000001CF205FFD78)
-[LOG] SoundI::release                          :     UI Slide 3 (000001CE54CC09E8)
-[LOG] SoundI::release                          :  (000001CEFF75F6D8)
-[LOG] SoundI::release                          :     UI Slide 4 (000001CF4D232BE8)
-[LOG] SoundI::release                          :  (000001CF259A62E8)
-[LOG] SoundI::release                          :     UI Slide 5 (000001CF49B5CA88)
-[LOG] SoundI::release                          :  (000001CEFF75F568)
-[LOG] SoundI::release                          :     UI Slide 6 (000001CF4D232A48)
-[LOG] SoundI::release                          :  (000001CF205FFC08)
-[LOG] SoundI::release                          :     Duck 1 (000001CE54CC01C8)
-[LOG] SoundI::release                          :  (000001CF205FEDA8)
-[LOG] SoundI::release                          :     Duck 2 (000001CF4F3608E8)
-[LOG] SoundI::release                          :  (000001CF259A86D8)
-[LOG] SoundI::release                          :     Duck 3 (000001CF254CDFF8)
-[LOG] SoundI::release                          :  (000001CF259A89B8)
-[LOG] SoundI::release                          :     Duck 4 (000001CE51FAA9A8)
-[LOG] SoundI::release                          :  (000001CF259A72B8)
-[LOG] SoundI::release                          :     Duck 5 (000001CF53EADA48)
-[LOG] SoundI::release                          :  (000001CF259A4EC8)
-[LOG] SoundI::release                          :     Bear 1 (000001CF25F9BDC8)
-[LOG] SoundI::release                          :  (000001CEFF75FB28)
-[LOG] SoundI::release                          :     Bear 2 (000001CF4D2323C8)
-[LOG] SoundI::release                          :  (000001CF259A8C98)
-[LOG] SoundI::release                          :     Bear 3 (000001CE51FAAE88)
-[LOG] SoundI::release                          :  (000001CF259A7708)
-[LOG] SoundI::release                          :     Dolphin 1 (000001CF254CDE58)
-[LOG] SoundI::release                          :  (000001CF259A5E98)
-[LOG] SoundI::release                          :     Dolphin 2 (000001CE4925E068)
-[LOG] SoundI::release                          :  (000001CF20600618)
-[LOG] SoundI::release                          :     Dolphin 3 (000001CE54CC0508)
-[LOG] SoundI::release                          :  (000001CF205FF368)
-[LOG] SoundI::release                          :     Dolphin 4 (000001CF4F360A88)
-[LOG] SoundI::release                          :  (000001CF205FEF18)
-[LOG] SoundI::release                          :     Sproing 1 (000001CF4F360748)
-[LOG] SoundI::release                          :  (000001CF259A6A18)
-[LOG] SoundI::release                          :     Sproing 2 (000001CF53EAD708)
-[LOG] SoundI::release                          :  (000001CF259A7598)
-[LOG] SoundI::release                          :     Sproing 3 (000001CF254CDCB8)
-[LOG] SoundI::release                          :  (000001CF205FF088)
-[LOG] SoundI::release                          :     bass loop 2 (000001CE54CC0D28)
-[LOG] SoundI::release                          :  (000001CF259A79E8)
-[LOG] SoundI::release                          :     bass loop (000001CF53EADD88)
-[LOG] SoundI::release                          :  (000001CF205FF4D8)
-[LOG] SoundI::release                          :     OneTwoThreeFour 100bpm (000001CF54614108)
-[LOG] SoundI::release                          :  (000001CF259A6738)
-[LOG] SoundI::release                          :     DS_VP_percussion_triangle_chimes_one_shot_ding (000001CE510CABF8)
-[LOG] SoundI::release                          :  (000001CF205FF7B8)
-[LOG] SoundI::release                          :     Scratch 1 (000001CF4F360DC8)
-[LOG] SoundI::release                          :  (000001CF259A7878)
-[LOG] SoundI::release                          :     Scratch 2 (000001CF254CD498)
-[LOG] SoundI::release                          :  (000001CF259A65C8)
-[LOG] SoundI::release                          :     Scratch 3 (000001CE76634A08)
-[LOG] SoundI::release                          :  (000001CF259A9AF8)
-[LOG] SoundI::release                          :     Metronome (000001CF49B5CF68)
-[LOG] SoundI::release                          :  (000001CF259A5768)
-[LOG] SoundI::release                          :     VOX_GO (000001CE4925DD28)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
