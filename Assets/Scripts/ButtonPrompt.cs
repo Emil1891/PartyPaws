@@ -70,21 +70,20 @@ public class ButtonPrompt : MonoBehaviour
                 targetLoc = rectTransform.anchoredPosition + Vector2.up * moveDistance;
                 break;
             
+            case GameManager.GameState.Transition:
             case GameManager.GameState.Reenacting:
                 targetLoc = rectTransform.anchoredPosition; 
                 rectTransform.anchoredPosition += Vector2.up * moveDistance;
                 movingUp = false; 
                 initialSpawnLoc = rectTransform.anchoredPosition; 
                 break;
-
-            case GameManager.GameState.Transition:
-                break;
             
             default:
-                Debug.Log("Should never end up here");
+                Debug.LogWarning("Should never end up here");
                 break; 
         }
 
+        Debug.LogWarning($"Spawned new btn");
     }
 
     // Update is called once per frame

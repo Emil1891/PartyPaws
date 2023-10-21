@@ -18,12 +18,12 @@ public class Track
     // public float targetTime = 10f;
     
     // How close the reenactors need to be to consider it a success 
-    private float graceRange = 0.5f;
+    private float graceRange = 0.1f;
 
     private int reenactCounter = 0;
 
     // how long before the button needs to be hit, that the prompt should spawn 
-    private float spawnTime = 2f;
+    private float spawnTime = 2f; 
 
     public void PlayerComposedNewNote(Note note)
     {
@@ -47,7 +47,8 @@ public class Track
             // more time has passed than what is required to consider it a success, then player has failed 
             if (time > note.GetTime() + graceRange)
             {
-                Debug.Log($"1out of time range, diff: {time - note.GetTime() + graceRange}, time: {time}, reenactor size: {reenactorNotes.Count}");
+                Debug.Log($"out of time range, diff: {time - note.GetTime() + graceRange}, time: {time}, reenactor size: {reenactorNotes.Count}");
+                Debug.Log($"out of time range, diff: {time - note.GetTime() + graceRange}, time: {time}, reenactor size: {reenactorNotes.Count}");
                 return true;
             }
 

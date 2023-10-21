@@ -34,20 +34,16 @@ public class GameManager : MonoBehaviour
     
     private FMOD.Studio.EventInstance DrumKit;
 
-    private float songLength = 4.8f; 
-    
+    private float songLength = 4.8f;
 
     private const float countdownLength = 4.8f; 
     
-    private float composeTimer = 0; 
+    private float composeCoolDownTimer = 0; 
     
     [SerializeField] private float composeTimeDelay = 0.1f; 
 
     private void Start()
     {
-
-
-
         NarratorSound = FMODUnity.RuntimeManager.CreateInstance("event:/NarratorLines");
 
         //TODO: Kalla p� random val av l�t
@@ -75,7 +71,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        composeTimer += Time.deltaTime; 
+        composeCoolDownTimer += Time.deltaTime; 
         
         if(currentGameState.Equals(GameState.Transition))
             timerText.SetText("Transitioning");
@@ -85,9 +81,14 @@ public class GameManager : MonoBehaviour
         if (currentGameState.Equals(GameState.Reenacting) || currentGameState.Equals(GameState.Transition))
         {
             Note noteToSpawn = currentTrack.GetNoteToSpawn(timer); 
-            if (noteToSpawn != null)
+            
+            if (noteToSpawn == null)
             {
-                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), GameState.Reenacting); 
+                 // Debug.Log("no notes to spawn"); 
+            }
+            else
+            {
+                btnPromptSpawner.SpawnNewPrompt(noteToSpawn.GetButtonName(), currentGameState);
             }
             
             if (currentGameState.Equals(GameState.Reenacting) && currentTrack.PlayerMissedNote(timer))
@@ -115,7 +116,10 @@ public class GameManager : MonoBehaviour
         NarratorSound.setParameterByName("animalType", composerPlayerIndex);
         NarratorSound.start();
 
-        currentGameState = GameState.Transition; 
+        currentGameState = GameState.Transition;
+
+        timer = 0; 
+        currentTrack.NewCompRoundStarted(); 
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -129,7 +133,6 @@ public class GameManager : MonoBehaviour
 
         currentGameState = GameState.Composing; 
         
-        currentTrack.NewCompRoundStarted(); 
         
         composerPlayerIndex++;
         playersReenactedThisRound = 0; 
@@ -160,6 +163,9 @@ public class GameManager : MonoBehaviour
         Music.setTimelinePosition(0);
 
         currentGameState = GameState.Transition;
+        
+        timer = 0; 
+        currentTrack.NewReenactStarted(); 
 
         yield return new WaitForSeconds(countdownLength); 
         
@@ -167,7 +173,6 @@ public class GameManager : MonoBehaviour
 
         currentGameState = GameState.Reenacting;
         
-        currentTrack.NewReenactStarted(); 
 
         int reenactIndex = composerPlayerIndex + playersReenactedThisRound;
 
@@ -218,13 +223,13 @@ public class GameManager : MonoBehaviour
 
     private void ComposedNewInput(char buttonName)
     {
-        if (composeTimer < composeTimeDelay)
+        if (composeCoolDownTimer < composeTimeDelay)
         {
-            Debug.Log($"Pressed too quickly, time since last press: {composeTimer}");
+            Debug.Log($"Pressed too quickly, time since last press: {composeCoolDownTimer}");
             return;
         }
 
-        composeTimer = 0; 
+        composeCoolDownTimer = 0; 
 
         // composing stuff 
         // Debug.Log($"Composing {buttonName}");
@@ -294,8 +299,6 @@ public class GameManager : MonoBehaviour
 
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher);
 
-        timer = 0; 
-
         StartCoroutine(StartNewReenactRound());
     }
     
@@ -319,8 +322,6 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerInputManager>().SwitchActionMapping(PlayerInputManager.EActionMapping.Watcher); 
         
         playersReenactedThisRound++;
-
-        timer = 0; 
 
         StartCoroutine(StartNewReenactRound());
     }
