@@ -22,7 +22,9 @@ public class PlayerMenuManager : MonoBehaviour
 
     [SerializeField] private PlayerInfo[] playerInfo; 
     
-    public static int playerCount = 0; 
+    public static int playerCount = 0;
+
+    [SerializeField] private GameObject PressToStartText;
 
     private FMOD.Studio.EventInstance AnimalSound;
     private FMOD.Studio.EventInstance UINav;
@@ -49,7 +51,8 @@ public class PlayerMenuManager : MonoBehaviour
         AnimalSound.start();
         UINav.start();
 
-        playerCount++; 
+        if (++playerCount >= 2)
+            PressToStartText.SetActive(true);
     }
     
 }

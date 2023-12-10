@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using FMOD.Studio;
 using TMPro;
 using Unity.VisualScripting;
@@ -20,11 +21,15 @@ public class WinScreenManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI restartText; 
 
     private GameObject[] players; 
+    
+    [SerializeField] private KeyCode[] KeyCodesToLoadJoinScreen;
+    private Dictionary<KeyCode, float> KeyTimes; 
+
+    private bool destroyedPlayers = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
         RoundOver = FMODUnity.RuntimeManager.CreateInstance("event:/UI/RoundOver");
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -62,29 +67,39 @@ public class WinScreenManager : MonoBehaviour
         }
 
     }
-
-    private bool destroyedPlayers = false; 
+    
     private void Update()
     {
+        if (destroyedPlayers || Time.timeSinceLevelLoad < 5.0f)
+            return;
 
-        if (Time.timeSinceLevelLoad > 5.0f)
-            restartText.gameObject.SetActive(true); 
+        restartText.gameObject.SetActive(true);
 
-        if (Time.timeSinceLevelLoad > 5.0f && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton2)) && !destroyedPlayers)
+        foreach (var key in KeyCodesToLoadJoinScreen)
         {
-            RoundOver.stop(STOP_MODE.ALLOWFADEOUT);
+            if (Input.GetKeyDown(key))
+                KeyTimes.Add(key, Time.timeSinceLevelLoad);
 
-            foreach (var player in players)
-            {
-                Destroy(player); 
-            }
-
-            destroyedPlayers = true;
-
-            PlayerInfo.playerCounter = 0; 
-            
-            FindObjectOfType<SceneLoader>().LoadScene("PlayerJoinScene");
+            if (Input.GetKeyUp(key))
+                KeyTimes.Remove(key);
         }
+
+        const float HoldTime = 1.0f; 
+        if (KeyTimes.Any(keyTime => Time.timeSinceLevelLoad - keyTime.Value >= HoldTime))
+            LoadJoinScreen();
+    }
+
+    private void LoadJoinScreen() 
+    {
+        RoundOver.stop(STOP_MODE.ALLOWFADEOUT);
         
+        foreach (var player in players)
+            Destroy(player); 
+
+        destroyedPlayers = true;
+        
+        PlayerInfo.playerCounter = 0; 
+        
+        FindObjectOfType<SceneLoader>().LoadScene("PlayerJoinScene");
     }
 }

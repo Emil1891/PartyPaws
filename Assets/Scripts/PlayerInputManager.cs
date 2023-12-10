@@ -24,9 +24,9 @@ public class PlayerInputManager : MonoBehaviour
     // The player input component 
     [SerializeField] private PlayerInput playerInput; 
 
-    private static List<GameObject> players = new(); 
+    private static List<GameObject> players = new();
 
-    public static bool hasRequestedJoin = false; 
+    private static bool hasRequestedJoin = false; 
 
     private void OnEnable()
     {
@@ -39,17 +39,17 @@ public class PlayerInputManager : MonoBehaviour
 
     public void StartGame(InputAction.CallbackContext context)
     {
+        const string sceneToLoad = "GameScene";
+        
+        // Do nothing if the action is other than pressed or trying to load the current scene 
+        if (hasRequestedJoin || !context.action.triggered || SceneManager.GetActiveScene().name.Equals(sceneToLoad))
+            return;
+        
         if (players.Count < 2)
         {
             Debug.Log("Min 2 players required");
             return; 
         }
-        
-        string sceneToLoad = "GameScene";
-
-        // Do nothing if the action is other than pressed or trying to load the current scene 
-        if (hasRequestedJoin || !context.action.triggered || SceneManager.GetActiveScene().name.Equals(sceneToLoad))
-            return;
 
         hasRequestedJoin = true; 
 
