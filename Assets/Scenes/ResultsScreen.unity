@@ -11276,7 +11276,7 @@ MonoBehaviour:
   - {fileID: 767798899}
   winText: {fileID: 60706308}
   restartText: {fileID: 1995255664}
-  KeyCodesToLoadJoinScreen: 69000000
+  KeyCodesToLoadJoinScreen: 4a0100004b0100004c0100004d0100001b0000000d00000020000000
 --- !u!4 &1104474838
 Transform:
   m_ObjectHideFlags: 0
