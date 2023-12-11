@@ -78,15 +78,10 @@ public class WinScreenManager : MonoBehaviour
         foreach (var key in KeyCodesToLoadJoinScreen)
         {
             if (Input.GetKeyDown(key))
-                KeyTimes.Add(key, Time.timeSinceLevelLoad);
-
-            if (Input.GetKeyUp(key))
-                KeyTimes.Remove(key);
+            {
+                LoadJoinScreen(); 
+            }
         }
-
-        const float HoldTime = 1.0f; 
-        if (KeyTimes.Any(keyTime => Time.timeSinceLevelLoad - keyTime.Value >= HoldTime))
-            LoadJoinScreen();
     }
 
     private void LoadJoinScreen() 

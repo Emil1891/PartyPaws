@@ -36393,7 +36393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1995255663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36434,7 +36434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold down any button for 1 second to restart
+  m_text: Press any button to restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70d2f1e2045a1f444a0a267e0129ae5d, type: 2}
   m_sharedMaterial: {fileID: -2985019778597169003, guid: 70d2f1e2045a1f444a0a267e0129ae5d, type: 2}
